@@ -25,6 +25,10 @@ body {
     background-color: #5c2b2b;
 }
 
+#loginbody {
+    background-color: transparent;
+}
+
 .navbar {
     background-color: #4d2828;
 }
