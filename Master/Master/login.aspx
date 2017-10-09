@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="StyleSheet.css" />
     <title>Master-apprentice Login</title>
 </head>
-<body>
+<body id="loginbody">
     <form id="form1" runat="server">
         <div class="Top">
         </div>
