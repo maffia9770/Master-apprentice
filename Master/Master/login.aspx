@@ -7,41 +7,43 @@
     <link rel="stylesheet" href="StyleSheet.css" />
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            height: 220px;
+        .Top {
+            height: 18em;
         }
-        .auto-style2 {
-            height: 334px;
-            display: inline-block;
+        .Mid {
+            height: 10em;
         }
-        .newStyle1 {
-            display: inline-block;
-        }
-        .newStyle2 {
+        .LoginBox {
             height: 10em;
             width: 20em;
             position: absolute;
             left: 40%;
-            top: 252px;
+        }
+        .Tbox {
+            width: 100%;
+        }
+        #Submit {
+            position:absolute;
+            left: 40%;
+            width: 20%;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="auto-style1">
+    <div class="Top">
     
     </div>
-        <div class="auto-style2">
-            <div class="newStyle2">
+        <div class="Mid">
+            <div class="LoginBox">
     
-        <asp:TextBox ID="Username" runat="server"></asp:TextBox>
+        <asp:TextBox ID="Username" runat="server" CssClass="Tbox" placeholder="Username"></asp:TextBox>
                 <br />
                 <br />
-
-        <asp:TextBox ID="Password" runat="server" TextMode="Password" style="margin-bottom: 0px"></asp:TextBox>
-    
+        <asp:TextBox ID="Password" runat="server" TextMode="Password"  CssClass="Tbox" placeholder="Password"></asp:TextBox>
+                <br />
+                <br />
         <asp:Button ID="Submit" runat="server" Text="Login" OnClick="Submit_Click" />
-    
             </div>
         </div>
     </form>
