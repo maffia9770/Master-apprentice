@@ -13,5 +13,10 @@ namespace Master
         {
 
         }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
