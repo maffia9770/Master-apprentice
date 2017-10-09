@@ -15,8 +15,6 @@
 }
 
 body {
-    background-image: url("http://bestanimations.com/Nature/Fire/campfire-animated-gif-10.gif");
-    -webkit-background-size: cover;
     position: static;
     width: auto;
     height: auto;
@@ -27,11 +25,27 @@ body {
     background-color: #5c2b2b;
 }
 
-div.navbar {
-    position: static;
-    height: 100px;
-    width: 100px;
-    background-color: #ff0000;
+#loginbody {
+    background-image: url("http://bestanimations.com/Nature/Fire/campfire-animated-gif-10.gif");
+    -webkit-background-size: cover;
+}
+
+.navbar {
+    background-color: #4d2828;
+}
+
+.subnav > li > a {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important; 
+}
+
+.subnav {
+    top: -17px;
+    min-height: 30px !important;
+}
+
+li.subnav {
+    top: 0;
 }
 
 .Top {

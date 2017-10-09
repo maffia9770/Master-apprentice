@@ -22,6 +22,14 @@
                 </ul>
             </div>
         </nav>
+        <nav class="navbar navbar-inverse subnav">
+            <div class="container-fluid subnav">
+                <ul class="nav navbar-nav subnav">
+                    <li class="active subnav"><a href="#">Test</a></li>
+                    <li class="subnav"><a href="#">test 2</a></li>
+                </ul>
+            </div>
+        </nav>
     </form>
 </body>
 </html>
