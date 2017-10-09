@@ -1,6 +1,17 @@
 ﻿body {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: auto;
+    min-width: 1080px;
+    min-height: 720px;
 
+    background: linear-gradient();
 }
-div {
-    
+
+div.navbar{
+    position: static;
+    height: 100px;
+    width: 100px;
+    background-color: #ff0000;
 }
