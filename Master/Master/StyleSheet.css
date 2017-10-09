@@ -1,17 +1,43 @@
 ﻿body {
+    background-image: url("http://bestanimations.com/Nature/Fire/campfire-animated-gif-10.gif");
+    -webkit-background-size: cover;
     position: static;
     width: auto;
     height: auto;
     margin: auto;
     min-width: 1080px;
     min-height: 720px;
-
     background: linear-gradient();
 }
 
-div.navbar{
+div.navbar {
     position: static;
     height: 100px;
     width: 100px;
     background-color: #ff0000;
+}
+
+.Top {
+    height: 18em;
+}
+
+.Mid {
+    height: 10em;
+}
+
+.LoginBox {
+    height: 10em;
+    width: 20%;
+    position: absolute;
+    left: 40%;
+}
+
+.Tbox {
+    width: 100%;
+}
+
+#Submit {
+    position: absolute;
+    left: 40%;
+    width: 20%;
 }
