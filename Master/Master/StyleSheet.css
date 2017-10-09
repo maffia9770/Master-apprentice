@@ -1,4 +1,20 @@
-﻿body {
+﻿.nav a:link {
+
+}
+
+.nav a:visited {
+
+}
+
+.nav a:hover {
+
+}
+
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+  background-color: #3a1c1c !important;
+}
+
+body {
     background-image: url("http://bestanimations.com/Nature/Fire/campfire-animated-gif-10.gif");
     -webkit-background-size: cover;
     position: static;
@@ -7,7 +23,8 @@
     margin: auto;
     min-width: 1080px;
     min-height: 720px;
-    background: linear-gradient();
+
+    background-color: #5c2b2b;
 }
 
 div.navbar {
