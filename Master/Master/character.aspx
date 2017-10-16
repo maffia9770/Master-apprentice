@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="character.aspx.cs" Inherits="Master.character" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="character.aspx.cs" Inherits="Master.character" %>
 
 <!DOCTYPE html>
 
@@ -15,11 +15,11 @@
 		<nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Quest Log</a></li>
+                    <li><a href="Home.aspx">Quest Log</a></li>
                     <li class="active"><a href="#">Character</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+                    <li><a href="login.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -27,13 +27,13 @@
 
 	<!-- Page Content -->
 	<div class="w3-container w3-black w3-center">
-		<!-- Namn hämtat från databas -->
+		<!-- Name fetched from db -->
 		<h1>Ragnar Stålnäve</h1>
 	</div>
 
 	<div class="w3-container">
 		<img src="example-image.jpg" />
-		<!-- Klass hämtad från databas -->
+		<!-- Class fetched from db -->
 		<p class="w3-text-white">Class: Computer mage</p>
 		<p class="w3-text-white">Skills: </p>
 		<p class="w3-text-white">Ett table här med skills!</p>
