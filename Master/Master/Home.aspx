@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Master.Home" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Master.Home" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Master & Aprentice - Quest Log</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="StyleSheet.css" />
@@ -16,27 +16,27 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Quest Log</a></li>
-                    <li><a href="#">Character</a></li>
+                    <li><a href="character.aspx">Character</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+                    <li><a href="login.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
                 </ul>
             </div>
         </nav>
         <nav class="navbar navbar-inverse subnav">
             <div class="container-fluid subnav">
                 <ul class="nav navbar-nav subnav">
-                    <li class="active subnav"><a href="#">Available</a></li>
-                    <li class="subnav"><a href="#">Active</a></li>
-					<li class="subnav"><a href="#">Completed</a></li>
-					<li class="subnav"><a href="#">Failed</a></li>
+                    	<li class="active subnav"><a href="#">Available</a></li>
+                    	<li class="subnav"><a href="#">Active</a></li>
+			<li class="subnav"><a href="#">Completed</a></li>
+			<li class="subnav"><a href="#">Failed</a></li>
                 </ul>
             </div>
         </nav>
     </form>
 
     
-		<!-- Sidebar -->
+	<!-- Sidebar -->
 	<div class="w3-sidebar w3-black w3-bar-block" style="width:15%">
 		<h3 class="w3-bar-item">DVA231</h3>
 		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
@@ -49,7 +49,7 @@
 
 	<div class="w3-container w3-black w3-center">
 	  <h1 class="w3-text-white">Main Quest 1</h1>
-	</div
+	</div>
 
 	<div class="w3-container">
 	    <h3 class="w3-text-white">Description</h3>
