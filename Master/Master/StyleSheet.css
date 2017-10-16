@@ -1,12 +1,12 @@
-﻿.nav a:link {
+﻿a:link {
 
 }
 
-.nav a:visited {
+a:visited {
 
 }
 
-.nav a:hover {
+a:hover {
 
 }
 
@@ -32,6 +32,7 @@ body {
 
 .navbar {
     background-color: #4d2828;
+    font-family: 'Copperplate Gothic';
 }
 
 .subnav > li > a {
@@ -46,6 +47,32 @@ body {
 
 li.subnav {
     top: 0;
+}
+
+.w3-container {
+    font-family: 'Copperplate Gothic' !important;
+}
+
+.w3-black {
+    background-color: #4d2828 !important;
+}
+
+.w3-bar-item {
+    font-family: 'Copperplate Gothic';
+}
+
+.w3-text-white {
+    margin: 10px;
+    font-family: 'Copperplate Gothic';
+}
+
+.subtext {
+    margin-left: 20px;
+    font-family: 'Comic Sans MS';
+}
+
+.active{
+    background-color: #3a1c1c !important;
 }
 
 .Top {
