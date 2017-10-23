@@ -6,16 +6,17 @@
 <head runat="server">
     <title>Master & Aprentice - Quest Log</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="jquery-3.2.1.js"></script>
-    <script src="jquery-3.2.1.intellisense.js"></script>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/jquery-3.2.1.intellisense.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("ul.subnav a").click(function () {
-                $("this").parent().addClass("active").siblings().removeClass("active")
+        $(function () {
+            $(".nav a").filter(function () { return this.href == location.href }).parent().addClass("active").siblings().removeClass("active")
+            $(".nav a").click(function () {
+                $(this).parent().addClass("active").siblings().removeClass("active")
             })
         })
     </script>
