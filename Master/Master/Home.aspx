@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Scripts/scripts.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -39,7 +40,7 @@
 	<!-- Sidebar -->
 	<div class="w3-sidebar w3-black w3-bar-block" style="width:15%">
 		<h3 class="w3-bar-item">DVA231</h3>
-		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
+		<a runat="server" ID="Q1" onclick="QuestAjax(Q1.innerText)" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
 		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 2</a>
 		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 3</a>
 	</div>
