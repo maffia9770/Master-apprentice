@@ -24,7 +24,7 @@ namespace Master
             }
             else
             {
-                SqlConnection con = new SqlConnection("Server=tcp:judas.database.windows.net,1433;Initial Catalog=User_server;Persist Security Info=False;User ID=Judas;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=10;");
+                SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 con.Open();
                 SqlCommand CheckUser = new SqlCommand("UsersProc", con);
                 CheckUser.CommandType = CommandType.StoredProcedure;
@@ -60,5 +60,6 @@ namespace Master
                     Response.Redirect("index.aspx");
                 }
             }
+        }
     }
 }
