@@ -11,7 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="scripts/jquery-3.2.1.js"></script>
     <script src="scripts/jquery-3.2.1.intellisense.js"></script>
-
+    <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json_parse.js"></script>
+    <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
+    <script type="text/javascript" src="Scripts/scripts.js"></script>
     <script type="text/javascript">
         $(function () {
             $(".nav a").filter(function () { return this.href == location.href }).parent().addClass("active").siblings().removeClass("active")
@@ -51,7 +53,7 @@
 	<!-- Sidebar -->
 	<div class="w3-sidebar w3-black w3-bar-block" style="width:15%">
 		<h3 class="w3-bar-item">DVA231</h3>
-		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
+		<a runat="server" ID="Q1" onclick="QuestAjax('Q1')" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
 		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 2</a>
 		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 3</a>
 	</div>
@@ -60,16 +62,16 @@
 	<div style="margin-left:15%">
 
 	<div class="w3-container w3-black w3-center">
-	  <h1 class="w3-text-white">Main Quest 1</h1>
+	  <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
 	</div>
 
-	<div class="w3-container">
+	<div  class="w3-container">
 	    <h3 class="w3-text-white">Description</h3>
-	    <p class="w3-text-white subtext">Info om questet här.</p>
+	    <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
 	    <h3 class="w3-text-white">Objectives</h3>
-	    <p class="w3-text-white subtext">Info om objectives här.</p>
+	    <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
 	    <h3 class="w3-text-white">Rewards</h3>
-	    <p class="w3-text-white subtext">Vilka lvlar man får här :)</p>
+	    <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
 	</div>
 
 	</div>
