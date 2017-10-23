@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="jquery-3.2.1.js"></script>
+    <script src="jquery-3.2.1.intellisense.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("ul.subnav a").click(function () {
+                $("this").parent().addClass("active").siblings().removeClass("active")
+            })
+        })
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,10 +37,10 @@
         <nav class="navbar navbar-inverse subnav">
             <div class="container-fluid subnav">
                 <ul class="nav navbar-nav subnav">
-                    	<li class="active subnav"><a href="#">Available</a></li>
-                    	<li class="subnav"><a href="#">Active</a></li>
-			            <li class="subnav"><a href="#">Completed</a></li>
-			            <li class="subnav"><a href="#">Failed</a></li>
+                    	<li class="active"><a href="#">Available</a></li>
+                    	<li><a href="#">Active</a></li>
+			            <li><a href="#">Completed</a></li>
+			            <li><a href="#">Failed</a></li>
                 </ul>
             </div>
         </nav>
