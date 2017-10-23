@@ -28,8 +28,8 @@
                 <ul class="nav navbar-nav subnav">
                     	<li class="active subnav"><a href="#">Available</a></li>
                     	<li class="subnav"><a href="#">Active</a></li>
-			<li class="subnav"><a href="#">Completed</a></li>
-			<li class="subnav"><a href="#">Failed</a></li>
+			            <li class="subnav"><a href="#">Completed</a></li>
+			            <li class="subnav"><a href="#">Failed</a></li>
                 </ul>
             </div>
         </nav>

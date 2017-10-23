@@ -80,6 +80,9 @@
   <ItemGroup>
     <Content Include="index.aspx" />
     <Content Include="StyleSheet.css" />
+    <Content Include="teacher-home.aspx" />
+    <Content Include="teacher-pending.aspx" />
+    <Content Include="teacher-students.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +115,27 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="teacher-home.aspx.cs">
+      <DependentUpon>teacher-home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teacher-home.aspx.designer.cs">
+      <DependentUpon>teacher-home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="teacher-pending.aspx.cs">
+      <DependentUpon>teacher-pending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teacher-pending.aspx.designer.cs">
+      <DependentUpon>teacher-pending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="teacher-students.aspx.cs">
+      <DependentUpon>teacher-students.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="teacher-students.aspx.designer.cs">
+      <DependentUpon>teacher-students.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
