@@ -14,24 +14,7 @@ namespace Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            con.Open();
-            SqlCommand CheckQuests = new SqlCommand("CheckQuests", con);
-            CheckQuests.CommandType = CommandType.StoredProcedure;
-            /* tills vi har user att skicka in
-            SqlParameter parLogINID = new SqlParameter();
-            parLogINID.ParameterName = "@Username";
-            parLogINID.Value = User.Text;
-            */ 
-            SqlParameter parCourse = new SqlParameter();
-            parCourse.ParameterName = "@CourseID";
-            parCourse.Value = "DVA231";
-
-            //CheckQuests.Parameters.Add(parUser);
-            CheckQuests.Parameters.Add(parCourse);
-            Object obj = CheckQuests.ExecuteScalar();
-            //Q1.InnerText = obj.ToString();
-            con.Close();
+            
         }
         [WebMethod(EnableSession = true)]
         public static string DisplayQuest( string Quest)
@@ -56,6 +39,34 @@ namespace Master
             Quest.Remove(0);
             System.Diagnostics.Debug.WriteLine(Quest+"sug mig");
             return Quest;
+        }
+        [WebMethod(EnableSession = true)]
+        public static string CheckQuests(string Course)
+        {
+            SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            con.Open();
+            SqlCommand CheckQuests = new SqlCommand("CheckQuests", con);
+            CheckQuests.CommandType = CommandType.StoredProcedure;
+            /* tills vi har user att skicka in
+            SqlParameter parLogINID = new SqlParameter();
+            parLogINID.ParameterName = "@Username";
+            parLogINID.Value = User.Text;
+            */
+            SqlParameter parCourse = new SqlParameter();
+            parCourse.ParameterName = "@CourseID";
+            parCourse.Value = Course;
+
+            //CheckQuests.Parameters.Add(parUser);
+            CheckQuests.Parameters.Add(parCourse);
+            Object obj = CheckQuests.ExecuteScalar();
+            Course = obj.ToString();
+            con.Close();
+            Course.Trim();
+            Course.Replace("[", string.Empty);
+            Course.Replace("]", string.Empty);
+            Course.Remove(0);
+            System.Diagnostics.Debug.WriteLine(obj.ToString());
+            return Course;
         }
     }
 }

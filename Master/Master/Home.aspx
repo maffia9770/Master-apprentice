@@ -24,7 +24,7 @@
     </script>
 
 </head>
-<body>
+<body onload="CheckQuests('DVA231')">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -51,21 +51,18 @@
 
     
 	<!-- Sidebar -->
-	<div class="w3-sidebar w3-black w3-bar-block" style="width:15%">
+	<div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width:15%">
 		<h3 class="w3-bar-item">DVA231</h3>
-		<a runat="server" ID="Q1" onclick="QuestAjax('Q1')" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
-		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 2</a>
-		<a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 3</a>
 	</div>
 
 	<!-- Page Content -->
 	<div style="margin-left:15%">
 
-	<div class="w3-container w3-black w3-center">
+	<div class="w3-container w3-black w3-center details" style="visibility: hidden">
 	  <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
 	</div>
 
-	<div  class="w3-container">
+	<div class="w3-container details" style="visibility: hidden">
 	    <h3 class="w3-text-white">Description</h3>
 	    <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
 	    <h3 class="w3-text-white">Objectives</h3>
