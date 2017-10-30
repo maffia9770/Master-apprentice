@@ -22,6 +22,14 @@
             })
         })
     </script>
+    <script type="text/javascript">
+        $(function () {
+            $("a .w3-bar-item").filter(function () { return this.href == location.href }).addClass("active").siblings().removeClass("active")
+            $("a").click(function () {
+                $(this).addClass("active").siblings().removeClass("active")
+            })
+        })
+    </script>
 
 </head>
 <body>
