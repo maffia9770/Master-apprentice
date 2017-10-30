@@ -1,11 +1,11 @@
 ﻿function QuestAjax(Quest) {
-    Quest = $('#Q'+Quest).text();
-    alert(Quest);
+    QuestText = $('#Q'+Quest).text();
+    //alert(Quest);
     $.ajax({
         type: 'POST',
         url: 'Home.aspx/DisplayQuest',
         contentType: 'application/json; charset=utf-8',
-        data: "{Quest: '" + Quest + "'}",
+        data: "{Quest: '" + QuestText + "'}",
         dataType: 'json',
         success: function (data) {
             result = JSON.parse(data.d);
@@ -15,8 +15,7 @@
             $("#obj").text(result[0].QuestObj);
             $("#rew").text(result[0].QuestRew);
             $(".details").css("visibility", "visible");
-
-
+            $("#Q" +  Quest).addClass("active").siblings().removeClass("active");
 
             /*//var result = JSON.stringify(data)
             var result = data;

@@ -63,6 +63,7 @@ li.subnav {
 
 .w3-bar-item {
     font-family: 'Copperplate Gothic';
+    border: dashed;
 }
 
 .w3-text-white {
