@@ -24,13 +24,13 @@ namespace Master
             parLogINID.Value = User.Text;
             */ 
             SqlParameter parCourse = new SqlParameter();
-            parCourse.ParameterName = "@Course";
+            parCourse.ParameterName = "@CourseID";
             parCourse.Value = "DVA231";
 
             //CheckQuests.Parameters.Add(parUser);
             CheckQuests.Parameters.Add(parCourse);
             Object obj = CheckQuests.ExecuteScalar();
-            Q1.InnerText = obj.ToString();
+            //Q1.InnerText = obj.ToString();
             con.Close();
         }
         [WebMethod(EnableSession = true)]

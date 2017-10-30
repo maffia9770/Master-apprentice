@@ -24,13 +24,13 @@ namespace Master
             }
             else
             {
-                SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 con.Open();
-                SqlCommand CheckUser = new SqlCommand("UsersProc", con);
+                SqlCommand CheckUser = new SqlCommand("UserLogin", con);
                 CheckUser.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter parLogINID = new SqlParameter();//skicka in username
-                parLogINID.ParameterName = "@Username";
+                parLogINID.ParameterName = "@UserID";
                 parLogINID.Value = Username.Text;
 
                 SqlParameter parPassword = new SqlParameter();//skicka in password
@@ -40,24 +40,21 @@ namespace Master
                 CheckUser.Parameters.Add(parLogINID);
                 CheckUser.Parameters.Add(parPassword);
 
-                int j = 0;
-
-                j = Convert.ToInt16(CheckUser.ExecuteScalar());// ändrar return till int värde
-
-                if (j > 0)
-                {//ev ej nödvändigt, har med userid att göra
-                    SqlCommand GetID = new SqlCommand("GetID", con);
+                object obj = new object();
+                //j = Convert.ToInt16(CheckUser.ExecuteScalar());// ändrar return till int värde
+                obj = CheckUser.ExecuteScalar();
+                if(obj != null)
+                {
+                    SqlCommand GetID = new SqlCommand("GetType", con);
                     GetID.CommandType = CommandType.StoredProcedure;
                     SqlParameter UserID = new SqlParameter();
-                    UserID.ParameterName = "@Username";
+                    UserID.ParameterName = "@UserID";
                     UserID.Value = Username.Text;
                     GetID.Parameters.Add(UserID);
-                    Session["UserID"] = Convert.ToInt16(GetID.ExecuteScalar());
-                    //
+                    Session["UserType"] = Convert.ToInt16(GetID.ExecuteScalar());
                     con.Close();
                     Session["User"] = Username.Text;
-                    Session["logon"] = (bool)true;
-                    Response.Redirect("index.aspx");
+                    Response.Redirect("Home.aspx");
                 }
             }
         }
