@@ -63,11 +63,11 @@
 	</div>
 
 	<div class="w3-container details" style="visibility: hidden">
-	    <h3 class="w3-text-white">Description</h3>
+	    <h3 class="w3-text-white QuestT">Description</h3>
 	    <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
-	    <h3 class="w3-text-white">Objectives</h3>
+	    <h3 class="w3-text-white QuestT">Objectives</h3>
 	    <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
-	    <h3 class="w3-text-white">Rewards</h3>
+	    <h3 class="w3-text-white QuestT">Rewards</h3>
 	    <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
 	</div>
 

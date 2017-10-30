@@ -37,6 +37,7 @@ body {
 .navbar {
     background-color: #4d2828;
     font-family: 'Copperplate Gothic';
+    border: 1px solid #3a1c1c;
 }
 
 .subnav > li > a {
@@ -52,6 +53,11 @@ body {
 li.subnav {
     top: 0;
 }
+
+.w3-sidebar {
+    border: 5px solid #3a1c1c;
+}
+
 
 .w3-container {
     font-family: 'Copperplate Gothic' !important;
@@ -86,6 +92,14 @@ li.subnav {
 
 .Mid {
     height: 10em;
+}
+
+#quest {
+    border: 2px solid #3a1c1c;
+}
+
+.QuestT {
+    text-decoration: underline;
 }
 
 .LoginBox {
