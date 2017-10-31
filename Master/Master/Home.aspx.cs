@@ -27,9 +27,9 @@ namespace Master
             {
                 using (SqlConnection Conn = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
                 {
-                    try//placeholder
+                    //placeholder
                     {
-                        const string SQL = "INSERT INTO [BinaryTable] ([FileName], [DateTimeUploaded], [MIME], [BinaryData]) VALUES (@FileName, @DateTimeUploaded, @MIME, @BinaryData)";
+                        const string SQL = "INSERT INTO [BinaryTable] ([FileName], [DateTimeUploaded], [MIME], [BinaryData], [QuestID]) VALUES (@FileName, @DateTimeUploaded, @MIME, @BinaryData, @QuestID)";
                         SqlCommand cmd = new SqlCommand(SQL, Conn);
                         cmd.Parameters.AddWithValue("@FileName", FileName.Text.Trim());
                         cmd.Parameters.AddWithValue("@MIME", FileToUpload.PostedFile.ContentType);
@@ -39,12 +39,14 @@ namespace Master
                         cmd.Parameters.AddWithValue("@BinaryData", imageBytes);
                         cmd.Parameters.AddWithValue("@DateTimeUploaded", DateTime.Now);
 
+                        cmd.Parameters.AddWithValue("@QuestID", Session["QuestID"]);
+                        System.Diagnostics.Debug.WriteLine(Session["QuestID"]);
                         Conn.Open();
                         cmd.ExecuteNonQuery();
                         lit_Status.Text = "<br />File successfully uploaded - thank you.<br />";
                         Conn.Close();
                     }
-                    catch
+                    
                     { 
                     lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
                     Conn.Close();
@@ -103,6 +105,13 @@ namespace Master
             UserID.Remove(0);
             System.Diagnostics.Debug.WriteLine(obj.ToString());
             return UserID;
+        }
+        [WebMethod(EnableSession = true)]
+        public static string SessionData(string QuestID)
+        {
+            System.Diagnostics.Debug.WriteLine(QuestID);
+            HttpContext.Current.Session["QuestID"] = QuestID;
+            return "1";
         }
     }
 }

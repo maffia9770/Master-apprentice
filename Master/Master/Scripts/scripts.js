@@ -41,3 +41,19 @@ function CheckQuests(UserID) {
         }
     });
 }
+function SessionData() {
+    var CourseID = $("#Course").text;
+    var QuestID = $("#quest").text;
+    $.ajax({
+        type: 'POST',
+        url: 'Home.aspx/SessionData',
+        contentType: 'application/json; charset=utf-8',
+        data: "{QuestID: '" + QuestID + "'}",
+        dataType: 'json',
+        success: function (data) {
+        },
+        error: function () {
+            alert("ajaxerror");
+        }
+    });
+}

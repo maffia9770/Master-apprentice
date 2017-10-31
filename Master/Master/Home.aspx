@@ -52,7 +52,7 @@
     
 	<!-- Sidebar -->
 	<div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width:15%">
-		<h3 class="w3-bar-item">DVA231</h3>
+		<h3 id="Course" class="w3-bar-item">DVA231</h3>
 	</div>
 
 	<!-- Page Content -->
@@ -75,12 +75,12 @@
         <br />
         <b>Name:</b>
         <br />
-        <asp:TextBox ID="FileName" runat="server" />
+        <asp:TextBox ID="FileName" CssClass="form-inline" runat="server" />
         <br />
         <b>File:</b>
         <asp:FileUpload ID="FileToUpload" runat="server" />
         <br />
-        <asp:Button ID="btn_Upload" runat="server" Text="Upload" onclick="btn_Upload_Click" />
+        <asp:Button ID="btn_Upload" runat="server" Text="Upload" onclick="btn_Upload_Click" OnClientClick="SessionData()" />
 	</div>
 
 	</div>
