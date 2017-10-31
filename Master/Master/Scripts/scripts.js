@@ -17,7 +17,7 @@
         },
         error: function () {
             alert("ajaxerror");
-        },
+        }
     });
 }
 function CheckQuests(Course) {
@@ -38,6 +38,6 @@ function CheckQuests(Course) {
         },
         error: function () {
             alert("ajaxerror");
-        },
+        }
     });
 }

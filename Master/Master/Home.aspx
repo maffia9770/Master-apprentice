@@ -47,7 +47,7 @@
                 </ul>
             </div>
         </nav>
-    </form>
+    
 
     
 	<!-- Sidebar -->
@@ -62,15 +62,29 @@
 	  <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
 	</div>
 
-	<div class="w3-container details" style="visibility: hidden">
+	<div class="w3-container details" style="visibility: ">
 	    <h3 class="w3-text-white QuestT">Description</h3>
 	    <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
 	    <h3 class="w3-text-white QuestT">Objectives</h3>
 	    <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
 	    <h3 class="w3-text-white QuestT">Rewards</h3>
 	    <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
+        <br />
+        <br />
+        <asp:Literal ID="lit_Status" runat="server" />
+        <br />
+        <b>Name:</b>
+        <br />
+        <asp:TextBox ID="FileName" runat="server" />
+        <br />
+        <b>File:</b>
+        <asp:FileUpload ID="FileToUpload" runat="server" />
+        <br />
+        <asp:Button ID="btn_Upload" runat="server" Text="Upload" onclick="btn_Upload_Click" />
 	</div>
 
 	</div>
+
+    </form>
 </body>
 </html>
