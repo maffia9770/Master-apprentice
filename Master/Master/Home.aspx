@@ -24,7 +24,7 @@
     </script>
 
 </head>
-<body onload="CheckQuests('test123')">
+<body onload="CheckQuests(0)">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -40,10 +40,10 @@
         <nav class="navbar navbar-inverse subnav">
             <div class="container-fluid subnav">
                 <ul class="nav navbar-nav subnav">
-                    	<li class="active"><a href="#">Available</a></li>
-                    	<li><a href="#">Active</a></li>
-			            <li><a href="#">Completed</a></li>
-			            <li><a href="#">Failed</a></li>
+                    	<li class="active"><a href="#" onclick="CheckQuests(0)">Available</a></li>
+                    	<li><a href="#" onclick="CheckQuests(1)">Active</a></li>
+			            <li><a href="#" onclick="CheckQuests(2)">Completed</a></li>
+			            <li><a href="#" onclick="CheckQuests(3)">Failed</a></li>
                 </ul>
             </div>
         </nav>
