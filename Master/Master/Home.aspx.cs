@@ -112,6 +112,10 @@ namespace Master
             //CheckQuests.Parameters.Add(parUser);
             CheckQuests.Parameters.Add(parLogINID);
             Object obj = CheckQuests.ExecuteScalar();
+            if (obj == null)
+            {
+                return null;
+            }
             UserID = obj.ToString();
             con.Close();
             UserID.Trim();
