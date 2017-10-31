@@ -73,15 +73,15 @@
                 <br />
                 <asp:Literal ID="lit_Status" runat="server" />
                 <br />
-                <b class="Upload QuestActions">Name:</b>
+                <b class="Upload QuestActions w3-text-white w3-black">Name:</b>
                 <br />
-                <asp:TextBox ID="FileName" CssClass="form-inline Upload QuestActions" runat="server" />
+                <asp:TextBox ID="FileName" CssClass="form-inline Upload QuestActions w3-text-white w3-black" runat="server" />
                 <br />
-                <b class="Upload QuestActions">File:</b>
-                <asp:FileUpload CssClass="Upload QuestActions" ID="FileToUpload" runat="server" />
+                <b class="Upload QuestActions w3-text-white w3-black">File:</b>
+                <asp:FileUpload CssClass="Upload QuestActions w3-text-white w3-black" ID="FileToUpload" runat="server" />
                 <br />
-                <asp:Button CssClass="Upload QuestActions" ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />
-                <asp:Button CssClass="Accept QuestActions" ID="btn_Accept" runat="server" Text="Accept Quest" OnClick="btn_Accept_Click" OnClientClick="SessionData()"/>
+                <asp:Button CssClass="Upload QuestActions w3-text-white w3-black" ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />
+                <asp:Button CssClass="Accept QuestActions w3-text-white w3-black" ID="btn_Accept" runat="server" Text="Accept Quest" OnClick="btn_Accept_Click" OnClientClick="SessionData()"/>
             </div>
 
         </div>
