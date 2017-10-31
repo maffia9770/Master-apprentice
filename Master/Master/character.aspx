@@ -5,14 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Master & Aprentice - Character</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-		<nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li><a href="Home.aspx">Quest Log</a></li>
@@ -25,18 +25,18 @@
         </nav>
     </form>
 
-	<!-- Page Content -->
-	<div class="w3-container w3-black w3-center">
-		<!-- Name fetched from db -->
-		<h1>Ragnar Stålnäve</h1>
-	</div>
+    <!-- Page Content -->
+    <div class="w3-container w3-black w3-center">
+        <!-- Name fetched from db -->
+        <h1>Ragnar Stålnäve</h1>
+    </div>
 
-	<div class="w3-container">
-		<img src="example-image.jpg" />
-		<!-- Class fetched from db -->
-		<p class="w3-text-white">Class: Computer mage</p>
-		<p class="w3-text-white">Skills: </p>
-		<p class="w3-text-white">Ett table här med skills!</p>
-	</div>
+    <div class="w3-container">
+        <img src="example-image.jpg" />
+        <!-- Class fetched from db -->
+        <p class="w3-text-white">Class: Computer mage</p>
+        <p class="w3-text-white">Skills: </p>
+        <p class="w3-text-white">Ett table här med skills!</p>
+    </div>
 </body>
 </html>

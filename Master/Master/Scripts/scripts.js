@@ -1,5 +1,5 @@
 ﻿function QuestAjax(Quest) {
-    QuestText = $('#Q'+Quest).text();
+    QuestText = $('#Q' + Quest).text();
     $.ajax({
         type: 'POST',
         url: 'Home.aspx/DisplayQuest',

@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Master & Aprentice - Quest Log</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="scripts/jquery-3.2.1.js"></script>
@@ -40,50 +40,50 @@
         <nav class="navbar navbar-inverse subnav">
             <div class="container-fluid subnav">
                 <ul class="nav navbar-nav subnav">
-                    	<li class="active"><a href="#" onclick="CheckQuests(0)">Available</a></li>
-                    	<li><a href="#" onclick="CheckQuests(1)">Active</a></li>
-			            <li><a href="#" onclick="CheckQuests(2)">Completed</a></li>
-			            <li><a href="#" onclick="CheckQuests(3)">Failed</a></li>
+                    <li class="active"><a href="#" onclick="CheckQuests(0)">Available</a></li>
+                    <li><a href="#" onclick="CheckQuests(1)">Active</a></li>
+                    <li><a href="#" onclick="CheckQuests(2)">Completed</a></li>
+                    <li><a href="#" onclick="CheckQuests(3)">Failed</a></li>
                 </ul>
             </div>
         </nav>
-    
 
-    
-	<!-- Sidebar -->
-	<div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width:15%">
-		<h3 id="Course" class="w3-bar-item">DVA231</h3>
-	</div>
 
-	<!-- Page Content -->
-	<div style="margin-left:15%">
 
-	<div class="w3-container w3-black w3-center details" style="visibility: hidden">
-	  <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
-	</div>
+        <!-- Sidebar -->
+        <div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width: 15%">
+            <h3 id="Course" class="w3-bar-item">DVA231</h3>
+        </div>
 
-	<div class="w3-container details" style="visibility: ">
-	    <h3 class="w3-text-white QuestT">Description</h3>
-	    <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
-	    <h3 class="w3-text-white QuestT">Objectives</h3>
-	    <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
-	    <h3 class="w3-text-white QuestT">Rewards</h3>
-	    <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
-        <br />
-        <br />
-        <asp:Literal ID="lit_Status" runat="server" />
-        <br />
-        <b>Name:</b>
-        <br />
-        <asp:TextBox ID="FileName" CssClass="form-inline" runat="server" />
-        <br />
-        <b>File:</b>
-        <asp:FileUpload ID="FileToUpload" runat="server" />
-        <br />
-        <asp:Button ID="btn_Upload" runat="server" Text="Upload" onclick="btn_Upload_Click" OnClientClick="SessionData()" />
-	</div>
+        <!-- Page Content -->
+        <div style="margin-left: 15%">
 
-	</div>
+            <div class="w3-container w3-black w3-center details" style="visibility: hidden">
+                <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
+            </div>
+
+            <div class="w3-container details" style="visibility: ">
+                <h3 class="w3-text-white QuestT">Description</h3>
+                <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
+                <h3 class="w3-text-white QuestT">Objectives</h3>
+                <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
+                <h3 class="w3-text-white QuestT">Rewards</h3>
+                <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
+                <br />
+                <br />
+                <asp:Literal ID="lit_Status" runat="server" />
+                <br />
+                <b>Name:</b>
+                <br />
+                <asp:TextBox ID="FileName" CssClass="form-inline" runat="server" />
+                <br />
+                <b>File:</b>
+                <asp:FileUpload ID="FileToUpload" runat="server" />
+                <br />
+                <asp:Button ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />
+            </div>
+
+        </div>
 
     </form>
 </body>

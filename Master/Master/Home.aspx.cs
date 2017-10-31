@@ -15,7 +15,7 @@ namespace Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
         protected void btn_Upload_Click(object sender, EventArgs e)
         {
@@ -47,15 +47,15 @@ namespace Master
                         Conn.Close();
                     }
                     catch
-                    { 
-                    lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
-                    Conn.Close();
+                    {
+                        lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
+                        Conn.Close();
                     }
                 }
             }
         }
-    [WebMethod(EnableSession = true)]
-        public static string DisplayQuest( string Quest)
+        [WebMethod(EnableSession = true)]
+        public static string DisplayQuest(string Quest)
         {
             System.Diagnostics.Debug.WriteLine(Quest);
             //Quest = "Search for the Golden Pineapple";//detta ska inte vara här sen :p
@@ -140,7 +140,7 @@ namespace Master
                     return null;
                 }
             }
-           
+
         }
         [WebMethod(EnableSession = true)]
         public static string SessionData(string QuestID)
