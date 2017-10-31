@@ -77,32 +77,32 @@ namespace Master
             return Quest;
         }
         [WebMethod(EnableSession = true)]
-        public static string CheckQuests(string Course)
+        public static string CheckQuests(string UserID)
         {
             SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
-            SqlCommand CheckQuests = new SqlCommand("CheckQuests", con);
+            SqlCommand CheckQuests = new SqlCommand("ShowAvailableQuests", con);
             CheckQuests.CommandType = CommandType.StoredProcedure;
             /* tills vi har user att skicka in
             SqlParameter parLogINID = new SqlParameter();
             parLogINID.ParameterName = "@Username";
             parLogINID.Value = User.Text;
             */
-            SqlParameter parCourse = new SqlParameter();
-            parCourse.ParameterName = "@CourseID";
-            parCourse.Value = Course;
+            SqlParameter parLogINID = new SqlParameter();
+            parLogINID.ParameterName = "@UserID";
+            parLogINID.Value = UserID;
 
             //CheckQuests.Parameters.Add(parUser);
-            CheckQuests.Parameters.Add(parCourse);
+            CheckQuests.Parameters.Add(parLogINID);
             Object obj = CheckQuests.ExecuteScalar();
-            Course = obj.ToString();
+            UserID = obj.ToString();
             con.Close();
-            Course.Trim();
-            Course.Replace("[", string.Empty);
-            Course.Replace("]", string.Empty);
-            Course.Remove(0);
+            UserID.Trim();
+            UserID.Replace("[", string.Empty);
+            UserID.Replace("]", string.Empty);
+            UserID.Remove(0);
             System.Diagnostics.Debug.WriteLine(obj.ToString());
-            return Course;
+            return UserID;
         }
     }
 }

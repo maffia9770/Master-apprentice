@@ -20,7 +20,7 @@
         }
     });
 }
-function CheckQuests(Course) {
+function CheckQuests(UserID) {
     var i;
     var container = $(document.createElement('div'));
 
@@ -28,7 +28,7 @@ function CheckQuests(Course) {
         type: 'POST',
         url: 'Home.aspx/CheckQuests',
         contentType: 'application/json; charset=utf-8',
-        data: "{Course: '" + Course + "'}",
+        data: "{UserID: '" + UserID + "'}",
         dataType: 'json',
         success: function (data) {
             result = JSON.parse(data.d);
