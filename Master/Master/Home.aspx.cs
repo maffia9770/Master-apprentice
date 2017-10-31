@@ -41,17 +41,32 @@ namespace Master
             return Quest;
         }
         [WebMethod(EnableSession = true)]
-        public static string CheckQuests(string UserID)
+        public static string CheckQuests(string Status)
         {
             SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             con.Open();
             SqlCommand CheckQuests = new SqlCommand("ShowAvailableQuests", con);
+
+            if (Status == "1")
+            {
+                CheckQuests.CommandText = "ShowActiveQuests";
+            }
+            if (Status == "2")
+            {
+                CheckQuests.CommandText = "ShowCompletedQuests";
+            }
+            if (Status == "3")
+            {
+                CheckQuests.CommandText = "ShowFailedQuests";
+            }
+
             CheckQuests.CommandType = CommandType.StoredProcedure;
             /* tills vi har user att skicka in
             SqlParameter parLogINID = new SqlParameter();
             parLogINID.ParameterName = "@Username";
             parLogINID.Value = User.Text;
             */
+            var UserID = (string) HttpContext.Current.Session["User"];
             SqlParameter parLogINID = new SqlParameter();
             parLogINID.ParameterName = "@UserID";
             parLogINID.Value = UserID;

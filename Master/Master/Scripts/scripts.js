@@ -20,7 +20,7 @@
         },
     });
 }
-function CheckQuests(UserID) {
+function CheckQuests(Status) {
     var i;
     var container = $(document.createElement('div'));
 
@@ -28,13 +28,21 @@ function CheckQuests(UserID) {
         type: 'POST',
         url: 'Home.aspx/CheckQuests',
         contentType: 'application/json; charset=utf-8',
-        data: "{UserID: '" + UserID + "'}",
+        data: "{Status: '" + Status + "'}",
         dataType: 'json',
         success: function (data) {
+            $("#Qmain").empty();
+            $(".details").css("visibility", "hidden");
+            $("#Qmain").append('<h3 class="w3-bar-item">DVA231</h3>');
             result = JSON.parse(data.d);
-            for (i = 0; i < result.length; i++)
-                $("#Qmain").append('<a runat="server" ID="Q'+i+'" onclick="QuestAjax('+i+')" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">' + result[i].QuestName + '</a>');
-            //$('#Qmain').after(container);
+            if (result == null) {
+                $("#Qmain").append('<p class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">No Quests Here</p>')
+            }
+            else {
+                for (i = 0; i < result.length; i++)
+                    $("#Qmain").append('<a runat="server" ID="Q' + i + '" onclick="QuestAjax(' + i + ')" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">' + result[i].QuestName + '</a>');
+                //$('#Qmain').after(container);
+            }
         },
         error: function () {
             alert("ajaxerror");
