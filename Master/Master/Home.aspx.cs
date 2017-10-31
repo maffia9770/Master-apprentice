@@ -48,7 +48,7 @@ namespace Master
                         lit_Status.Text = "<br />File successfully uploaded - thank you.<br />";
                         Con.Close();
                     }
-                    catch
+                    catch(HttpUnhandledException)
                     {
                         lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
                         Con.Close();
@@ -58,18 +58,25 @@ namespace Master
         }
         protected void btn_Accept_Click(object sender, EventArgs e)
         {
-            using (SqlConnection Conn = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (SqlConnection Con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
-                const string SQL = "INSERT INTO [UsersQuests] ([QuestName], [UserID], [CourseID], [QuestStatus]) VALUES (@QuestName, @UserID, @CourseID, @QuestStatus)";
-                SqlCommand cmd = new SqlCommand(SQL, Conn);
-                cmd.Parameters.AddWithValue("@QuestName", Session["QuestID"]);
-                cmd.Parameters.AddWithValue("@UserID", Session["User"]);
-                cmd.Parameters.AddWithValue("@CourseID", "DVA231");
-                cmd.Parameters.AddWithValue("@QuestStatus", "1");
-                System.Diagnostics.Debug.WriteLine(Session["QuestID"]);
-                Conn.Open();
-                cmd.ExecuteNonQuery();
-                Conn.Close();
+                try
+                {
+                    const string SQL = "INSERT INTO [UsersQuests] ([QuestName], [UserID], [CourseID], [QuestStatus]) VALUES (@QuestName, @UserID, @CourseID, @QuestStatus)";
+                    SqlCommand cmd = new SqlCommand(SQL, Con);
+                    cmd.Parameters.AddWithValue("@QuestName", Session["QuestID"]);
+                    cmd.Parameters.AddWithValue("@UserID", Session["User"]);
+                    cmd.Parameters.AddWithValue("@CourseID", "DVA231");
+                    cmd.Parameters.AddWithValue("@QuestStatus", "1");
+                    System.Diagnostics.Debug.WriteLine(Session["QuestID"]);
+                    Con.Open();
+                    cmd.ExecuteNonQuery();
+                    Con.Close();
+                }
+                catch(HttpUnhandledException)
+                {
+                    Con.Close();
+                }
             }
         }
         [WebMethod(EnableSession = true)]
@@ -99,7 +106,7 @@ namespace Master
                     System.Diagnostics.Debug.WriteLine(Quest + "sug mig");
                     return Quest;
                 }
-                catch
+                catch(HttpUnhandledException)
                 {
                     con.Close();
                     return null;
@@ -145,8 +152,7 @@ namespace Master
                     Object obj = CheckQuests.ExecuteScalar();
                     if (obj == null)
                     {
-                        con.Close();
-                        return null;
+                        throw new HttpUnhandledException();
                     } 
                     UserID = obj.ToString();
                     con.Close();
@@ -157,7 +163,7 @@ namespace Master
                     System.Diagnostics.Debug.WriteLine(obj.ToString());
                     return UserID;
                 }
-                catch
+                catch(HttpUnhandledException)
                 {
                     con.Close();
                     return null;
