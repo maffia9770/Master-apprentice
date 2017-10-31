@@ -77,7 +77,7 @@
                 <br />
                 <asp:TextBox ID="FileName" CssClass="form-inline Upload QuestActions" runat="server" />
                 <br />
-                <b>File:</b>
+                <b class="Upload QuestActions">File:</b>
                 <asp:FileUpload CssClass="Upload QuestActions" ID="FileToUpload" runat="server" />
                 <br />
                 <asp:Button CssClass="Upload QuestActions" ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />

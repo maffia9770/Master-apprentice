@@ -26,12 +26,12 @@ namespace Master
             }
             else
             {
-                using (SqlConnection Conn = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+                using (SqlConnection Con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
                 {
-                    //placeholder
+                    try//placeholder
                     {
                         const string SQL = "INSERT INTO [BinaryTable] ([UserID], [FileName], [DateTimeUploaded], [MIME], [BinaryData], [QuestID]) VALUES (@UserID, @FileName, @DateTimeUploaded, @MIME, @BinaryData, @QuestID)";
-                        SqlCommand cmd = new SqlCommand(SQL, Conn);
+                        SqlCommand cmd = new SqlCommand(SQL, Con);
                         cmd.Parameters.AddWithValue("@FileName", FileName.Text.Trim());
                         cmd.Parameters.AddWithValue("@MIME", FileToUpload.PostedFile.ContentType);
 
@@ -43,15 +43,15 @@ namespace Master
                         cmd.Parameters.AddWithValue("@QuestID", Session["QuestID"]);
                         cmd.Parameters.AddWithValue("@UserID", Session["User"]);
                         System.Diagnostics.Debug.WriteLine(Session["QuestID"]);
-                        Conn.Open();
+                        Con.Open();
                         cmd.ExecuteNonQuery();
                         lit_Status.Text = "<br />File successfully uploaded - thank you.<br />";
-                        Conn.Close();
+                        Con.Close();
                     }
-                    
+                    catch
                     {
                         lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
-                        Conn.Close();
+                        Con.Close();
                     }
                 }
             }
@@ -101,6 +101,7 @@ namespace Master
                 }
                 catch
                 {
+                    con.Close();
                     return null;
                 }
             }
@@ -143,7 +144,10 @@ namespace Master
                     CheckQuests.Parameters.Add(parLogINID);
                     Object obj = CheckQuests.ExecuteScalar();
                     if (obj == null)
+                    {
+                        con.Close();
                         return null;
+                    } 
                     UserID = obj.ToString();
                     con.Close();
                     UserID.Trim();
@@ -155,6 +159,7 @@ namespace Master
                 }
                 catch
                 {
+                    con.Close();
                     return null;
                 }
             }

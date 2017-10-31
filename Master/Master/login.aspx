@@ -14,6 +14,7 @@
         </div>
         <div class="Mid">
             <div class="LoginBox">
+                <asp:Label ID="errLab" runat="server" ForeColor="Red"></asp:Label>
                 <asp:TextBox ID="Username" runat="server" CssClass="Tbox" placeholder="Username"></asp:TextBox>
                 <br />
                 <br />
