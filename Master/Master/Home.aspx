@@ -73,14 +73,14 @@
                 <br />
                 <asp:Literal ID="lit_Status" runat="server" />
                 <br />
-                <b>Name:</b>
+                <b class="Upload QuestActions">Name:</b>
                 <br />
-                <asp:TextBox ID="FileName" CssClass="form-inline" runat="server" />
+                <asp:TextBox ID="FileName" CssClass="form-inline Upload QuestActions" runat="server" />
                 <br />
                 <b>File:</b>
-                <asp:FileUpload ID="FileToUpload" runat="server" />
+                <asp:FileUpload CssClass="Upload QuestActions" ID="FileToUpload" runat="server" />
                 <br />
-                <asp:Button ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />
+                <asp:Button CssClass="Upload QuestActions" ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />
             </div>
 
         </div>

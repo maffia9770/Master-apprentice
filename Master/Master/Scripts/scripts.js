@@ -1,4 +1,6 @@
-﻿function QuestAjax(Quest) {
+﻿var QuestStatus = 0;
+
+function QuestAjax(Quest) {
     QuestText = $('#Q' + Quest).text();
     $.ajax({
         type: 'POST',
@@ -13,6 +15,11 @@
             $("#obj").text(result[0].QuestObj);
             $("#rew").text(result[0].QuestRew);
             $(".details").css("visibility", "visible");
+            $(".QuestActions").css("visibility", "hidden");
+            if (QuestStatus == 0)
+                $(".Accept").css("visibility", "visible");
+            if (QuestStatus == 1)
+                $(".Upload").css("visibility", "visible");
             $("#Q" + Quest).addClass("active").siblings().removeClass("active");
         },
         error: function () {
@@ -23,6 +30,7 @@
 function CheckQuests(Status) {
     var i;
     var container = $(document.createElement('div'));
+    QuestStatus = Status;
 
     $.ajax({
         type: 'POST',
@@ -33,6 +41,7 @@ function CheckQuests(Status) {
         success: function (data) {
             $("#Qmain").empty();
             $(".details").css("visibility", "hidden");
+            $(".QuestActions").css("visibility", "hidden");
             $("#Qmain").append('<h3 class="w3-bar-item">DVA231</h3>');
             result = JSON.parse(data.d);
             if (result == null) {
