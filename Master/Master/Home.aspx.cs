@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 
 namespace Master
 {
@@ -16,7 +17,42 @@ namespace Master
         {
             
         }
-        [WebMethod(EnableSession = true)]
+        protected void btn_Upload_Click(object sender, EventArgs e)
+        {
+            if (FileToUpload.PostedFile == null || String.IsNullOrEmpty(FileToUpload.PostedFile.FileName) || FileToUpload.PostedFile.InputStream == null)
+            {
+                lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
+            }
+            else
+            {
+                using (SqlConnection Conn = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+                {
+                    try//placeholder
+                    {
+                        const string SQL = "INSERT INTO [BinaryTable] ([FileName], [DateTimeUploaded], [MIME], [BinaryData]) VALUES (@FileName, @DateTimeUploaded, @MIME, @BinaryData)";
+                        SqlCommand cmd = new SqlCommand(SQL, Conn);
+                        cmd.Parameters.AddWithValue("@FileName", FileName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@MIME", FileToUpload.PostedFile.ContentType);
+
+                        byte[] imageBytes = new byte[FileToUpload.PostedFile.InputStream.Length + 1];
+                        FileToUpload.PostedFile.InputStream.Read(imageBytes, 0, imageBytes.Length);
+                        cmd.Parameters.AddWithValue("@BinaryData", imageBytes);
+                        cmd.Parameters.AddWithValue("@DateTimeUploaded", DateTime.Now);
+
+                        Conn.Open();
+                        cmd.ExecuteNonQuery();
+                        lit_Status.Text = "<br />File successfully uploaded - thank you.<br />";
+                        Conn.Close();
+                    }
+                    catch
+                    { 
+                    lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
+                    Conn.Close();
+                    }
+                }
+            }
+        }
+    [WebMethod(EnableSession = true)]
         public static string DisplayQuest( string Quest)
         {
             System.Diagnostics.Debug.WriteLine(Quest);

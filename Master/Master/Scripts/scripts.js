@@ -17,7 +17,7 @@
         },
         error: function () {
             alert("ajaxerror");
-        },
+        }
     });
 }
 function CheckQuests(Status) {
@@ -46,6 +46,6 @@ function CheckQuests(Status) {
         },
         error: function () {
             alert("ajaxerror");
-        },
+        }
     });
 }
