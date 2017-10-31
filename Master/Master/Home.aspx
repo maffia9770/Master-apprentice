@@ -81,6 +81,7 @@
                 <asp:FileUpload CssClass="Upload QuestActions" ID="FileToUpload" runat="server" />
                 <br />
                 <asp:Button CssClass="Upload QuestActions" ID="btn_Upload" runat="server" Text="Upload" OnClick="btn_Upload_Click" OnClientClick="SessionData()" />
+                <asp:Button CssClass="Accept QuestActions" ID="btn_Accept" runat="server" Text="Accept Quest" OnClick="btn_Accept_Click" OnClientClick="SessionData()"/>
             </div>
 
         </div>
