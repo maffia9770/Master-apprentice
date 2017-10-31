@@ -15,7 +15,8 @@ namespace Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["User"] == null)
+                Response.Redirect("Login.aspx");
         }
         protected void btn_Upload_Click(object sender, EventArgs e)
         {
@@ -27,9 +28,9 @@ namespace Master
             {
                 using (SqlConnection Conn = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
                 {
-                    try//placeholder
+                    //placeholder
                     {
-                        const string SQL = "INSERT INTO [BinaryTable] ([FileName], [DateTimeUploaded], [MIME], [BinaryData], [QuestID]) VALUES (@FileName, @DateTimeUploaded, @MIME, @BinaryData, @QuestID)";
+                        const string SQL = "INSERT INTO [BinaryTable] ([UserID], [FileName], [DateTimeUploaded], [MIME], [BinaryData], [QuestID]) VALUES (@UserID, @FileName, @DateTimeUploaded, @MIME, @BinaryData, @QuestID)";
                         SqlCommand cmd = new SqlCommand(SQL, Conn);
                         cmd.Parameters.AddWithValue("@FileName", FileName.Text.Trim());
                         cmd.Parameters.AddWithValue("@MIME", FileToUpload.PostedFile.ContentType);
@@ -40,13 +41,14 @@ namespace Master
                         cmd.Parameters.AddWithValue("@DateTimeUploaded", DateTime.Now);
 
                         cmd.Parameters.AddWithValue("@QuestID", Session["QuestID"]);
+                        cmd.Parameters.AddWithValue("@UserID", Session["User"]);
                         System.Diagnostics.Debug.WriteLine(Session["QuestID"]);
                         Conn.Open();
                         cmd.ExecuteNonQuery();
                         lit_Status.Text = "<br />File successfully uploaded - thank you.<br />";
                         Conn.Close();
                     }
-                    catch
+                    
                     {
                         lit_Status.Text = "<br />Error - unable to upload file. Please try again.<br />";
                         Conn.Close();
@@ -145,7 +147,6 @@ namespace Master
         [WebMethod(EnableSession = true)]
         public static string SessionData(string QuestID)
         {
-            System.Diagnostics.Debug.WriteLine(QuestID);
             HttpContext.Current.Session["QuestID"] = QuestID;
             return "1";
         }
