@@ -16,7 +16,7 @@
             $("#Q" + Quest).addClass("active").siblings().removeClass("active");
         },
         error: function () {
-            alert("ajaxerror");
+            alert("ajaxerror QuestAjax");
         }
     });
 }
@@ -45,12 +45,11 @@ function CheckQuests(Status) {
             }
         },
         error: function () {
-            alert("ajaxerror");
+            alert("ajaxerror CheckQuests");
         }
     });
 }
 function SessionData() {
-    var CourseID = $("#Course").text;
     var QuestID = $("#quest").text;
     $.ajax({
         type: 'POST',
@@ -61,7 +60,7 @@ function SessionData() {
         success: function (data) {
         },
         error: function () {
-            alert("ajaxerror");
+            alert("ajaxerror SessionData");
         }
     });
 }
