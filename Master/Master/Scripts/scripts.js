@@ -59,7 +59,7 @@ function CheckQuests(Status) {
     });
 }
 function SessionData() {
-    var QuestID = $("#quest").text;
+    var QuestID = $("#quest").text();
     $.ajax({
         type: 'POST',
         url: 'Home.aspx/SessionData',
