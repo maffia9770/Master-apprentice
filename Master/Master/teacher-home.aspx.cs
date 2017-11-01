@@ -43,9 +43,11 @@ namespace Master
                     Con.Open();
                     cmd.ExecuteNonQuery();
                     Con.Close();
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Quest created successfully')", true);
                 }
                 catch (HttpUnhandledException)
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Could not create quest')", true);
                     Con.Close();
                 }
             }
