@@ -16,6 +16,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="Scripts/scripts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".CBOX").click(function (event) {
+                if ($(this).attr("checked") == true) {
+                    $(".CBOX").attr("checked", "");
+                    $(this).attr("checked", "checked");
+                } else {
+                    $(this).attr("checked", "");
+                }
+            });
+        });
+    </script>
 </head>
 <body onload="CheckPending()">
     <form id="form1" runat="server">
@@ -61,6 +73,10 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
+                <input type="checkbox" id="Approve" CssClass="w3-text-white w3-black CBOX" value="1" name="status" form="form1" /> Approve
+                <br />
+                <input type="checkbox" id="Fail" CssClass="w3-text-white w3-black CBOX" value="2" name="status" form="form1" /> Fail
+                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="SubmitGrade_Click" CssClass="btn btn-default QSBUT w3-text-white w3-black"/>
             </div>
 
         </div>

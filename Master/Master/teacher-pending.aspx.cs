@@ -24,6 +24,10 @@ namespace Master
                 BindGrid();
             }*/
         }
+        protected void SubmitGrade_Click(object sender, EventArgs e)
+        {
+
+        }
         /*private void BindGrid()
             {
                 using (SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
