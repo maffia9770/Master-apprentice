@@ -93,9 +93,12 @@ function SessionData() {
     });
 }
 function Character() {
+    var QuestID= "FGT"
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'character.aspx/Character',
+        contentType: 'application/json; charset=utf-8',
+        data: "{QuestID: '" + QuestID + "'}",
         dataType: 'json',
         success: function (data) {
             result = JSON.parse(data.d);
