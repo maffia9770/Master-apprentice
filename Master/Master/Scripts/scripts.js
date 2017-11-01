@@ -110,3 +110,24 @@ function Character() {
         }
     });
 }
+function GetSkills() {
+    var QuestID = "FGT";
+    var i;
+    $.ajax({
+        type: 'POST',
+        url: 'character.aspx/GetSkills',
+        contentType: 'application/json; charset=utf-8',
+        data: "{QuestID: '" + QuestID + "'}",
+        dataType: 'json',
+        success: function (data) {
+            result = JSON.parse(data.d);
+            for(i = 0;i < result.length; i++)
+            {
+                $("#Skills").append('<p class="w3-text-white skills">' + result[i].Skill + ' ' + result[i].Points + '</p>');
+            }
+        },
+        error: function () {
+            alert("ajaxerror GetSkills");
+        }
+    });
+}

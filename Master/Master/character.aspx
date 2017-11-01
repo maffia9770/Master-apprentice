@@ -15,7 +15,7 @@
     <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
     <script type="text/javascript" src="Scripts/scripts.js"></script>
 </head>
-<body onload="Character()">
+<body onload="Character(); GetSkills();">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
