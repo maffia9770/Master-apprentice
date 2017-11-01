@@ -6,11 +6,11 @@
 <head runat="server">
     <title>Master & Aprentice - Character</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body onload="Character()">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -26,17 +26,15 @@
     </form>
 
     <!-- Page Content -->
-    <div class="w3-container w3-black w3-center">
-        <!-- Name fetched from db -->
-        <h1>Ragnar Stålnäve</h1>
+    <div id="Name" class="w3-container w3-black w3-center">
     </div>
 
-    <div class="w3-container">
+    <div id="char-background">
         <img src="example-image.jpg" />
-        <!-- Class fetched from db -->
-        <p class="w3-text-white">Class: Computer mage</p>
-        <p class="w3-text-white">Skills: </p>
-        <p class="w3-text-white">Ett table här med skills!</p>
+        <div id="Skills" class="w3-container">
+            <p class="w3-text-white skills">Class: Computer mage</p>
+            <p class="w3-text-white skills">Skills (DVA 231): </p>
+        </div>
     </div>
 </body>
 </html>

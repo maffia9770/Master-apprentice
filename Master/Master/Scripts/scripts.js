@@ -73,3 +73,19 @@ function SessionData() {
         }
     });
 }
+function Character() {
+    var i;
+
+    $.ajax({
+        type: 'POST',
+        url: 'character.aspx/Character',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function () {
+            $("#Name").append('<h1>' + result.Name + '</h1>');
+        },
+        error: function () {
+            alert("ajaxerror Character");
+        }
+    });
+}
