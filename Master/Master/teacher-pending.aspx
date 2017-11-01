@@ -48,11 +48,11 @@
         <!-- Page Content -->
         <div style="margin-left: 15%">
 
-            <div class="w3-container w3-black w3-center details" style="visibility: hidden">
+            <div class="w3-container w3-black w3-center details" style="visibility: visible>
                 <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
             </div>
 
-            <div class="w3-container details" style="visibility: hidden">
+            <div class="w3-container details" style="visibility: visible">
                 <h3 class="w3-text-white QuestT">Description</h3>
                 <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
                 <h3 class="w3-text-white QuestT">Objectives</h3>
@@ -61,7 +61,10 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
-            </div>
+                <select class="w3-select w3-text-white w3-black" name="option">
+                    <option value="" disabled selected>Choose Student</option>
+                </select>
+           </div>
 
     </div>
     </form>
