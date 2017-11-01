@@ -16,5 +16,11 @@ namespace Master
                 Response.Redirect("Home.aspx");
             }
 		}
+        protected void CreateQuest_Click(object sender, EventArgs e)
+        {
+
+            string Name = Request.Form["NewName"];
+            System.Diagnostics.Debug.WriteLine(Name + "sug mig");
+        }
 	}
 }

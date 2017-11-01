@@ -1,4 +1,9 @@
-﻿a:link {
+﻿.NewQuest{
+    color: black;
+    font-family:'Copperplate Gothic';
+    z-index: 200;
+}
+a:link {
 
 }
 
@@ -136,7 +141,7 @@ li.subnav {
     left: 40%;
     width: 20%;
 }
-.NewQuest{
-    color: black;
-    font: verdana;
+#QSBUT{
+    visibility: hidden;
+    margin-left: 20px;
 }

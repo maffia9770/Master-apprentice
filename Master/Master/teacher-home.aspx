@@ -62,6 +62,9 @@
                 <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
                 <h3 class="w3-text-white QuestT">Rewards</h3>
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
+                <br />
+                <br />
+                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="CreateQuest_Click" CssClass="btn btn-default QSBUT" />
             </div>
 
         </div>

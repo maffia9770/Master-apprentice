@@ -1,6 +1,7 @@
 ﻿var QuestStatus = 0;
 
 function QuestAjax(Quest) {
+    $(".QSBUT").css("visibility", "hidden");
     QuestText = $('#Q' + Quest).text();
     $.ajax({
         type: 'POST',
@@ -28,18 +29,18 @@ function QuestAjax(Quest) {
     });
 }
 function NewQuest() {
-    $("#quest").html('<input type="text" id="NewName" value="" form="CreateQuest">');
-    $("#desc").html('<textarea rows="4" cols="50" id="NewDesc" value="" form="CreateQuest>');
-    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" value="" form="CreateQuest>');
-    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" value="" form="CreateQuest>');
+    $("#quest").html('<input type="text" id="NewName" placeholder="Quest name" form="form1" >');
+    $("#desc").html('<textarea rows="4" cols="50"" id="NewDesc" form="form1">');
+    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" form="form1">');
+    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" form="form1">');
 
+    $("#NewName").addClass("NewQuest");
     $("#NewDesc").addClass("NewQuest");
-    $("#obj").addClass("NewQuest");
-    $("#rew").addClass("NewQuest");
-    $("#rew").append('<form action="/CreateQuest" id="CreateQuest">')
-    $("#rew").append('<input type="submit">')
-    $("#rew").append('</form>')
+    $("#NewObj").addClass("NewQuest");
+    $("#NewRew").addClass("NewQuest");
+    //$("#rew").append('<form action="teacher-home.aspx/CreateQuest" id="CreateQuest"><input type="submit" onserverclick class="btn btn-default NewQuest"></form>')
     $(".details").css("visibility", "visible");
+    $(".QSBUT").css("visibility", "visible");
 }
 function CheckQuests(Status) {
     var i;
@@ -93,7 +94,7 @@ function SessionData() {
     });
 }
 function Character() {
-    var QuestID= "FGT"
+    var QuestID = "Redacted";
     $.ajax({
         type: 'POST',
         url: 'character.aspx/Character',
