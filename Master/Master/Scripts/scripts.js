@@ -155,3 +155,17 @@ function GetSkills() {
         }
     });
 }
+function Logout() {
+    var QuestID = "FGT";
+    $.ajax({
+        type: 'POST',
+        url: 'login.aspx/Logout',
+        contentType: 'application/json; charset=utf-8',
+        data: "{QuestID: '" + QuestID + "'}",
+        dataType: 'json',
+        success: function (data) { },
+        error: function () {
+            alert("ajaxerror Logout");
+        }
+    });
+}
