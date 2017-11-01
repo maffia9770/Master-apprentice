@@ -112,9 +112,8 @@ function Character() {
 }
 function GetSkills() {
     var QuestID = "FGT";
-    var Levels;
-    var i;
     var level3, level2, level1, points;
+    var i;
     $.ajax({
         type: 'POST',
         url: 'character.aspx/GetSkills',
@@ -126,46 +125,31 @@ function GetSkills() {
             for(i = 0;i < result.length; i++)
             {
                 $("#Skills").append('<p class="w3-text-white skills">' + result[i].Skill + ':</p>');
-                Levels = GetLevels(result[i].Skill);
-                level3 = parseInt(Levels.Level3);
-                level2 = parseInt(Levels.Level2);
-                level1 = parseInt(Levels.Level1);
+                level3 = parseInt(result[i].Level3);
+                level2 = parseInt(result[i].Level2);
+                level1 = parseInt(result[i].Level1);
                 points = parseInt(result[i].Points);
+
                 if(points >= level3)
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 3, You have reached the highest level.</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 3, You have reached the highest level. Well done!:</p>');
                 }
-                else if(points >= level2)
+                else if (points >= level2)
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 2, You have' + (level3 - points) +' points left to level 3.</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 2, You have '+ (level3 - points) +' points left to reach level 3.:</p>');
                 }
-                else if(points >= level1)
+                else if (points >= level1)
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 1, You have' + (level2 - points) + ' points left to level 2.</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 1, You have ' + (level2 - points) + ' points left to reach level 2.:</p>');
                 }
                 else
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 0, You have' + (level1 - points) + ' points left to level 1.</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 0, You have ' + (level1 - points) + ' points left to reach level 1.:</p>');
                 }
             }
         },
         error: function () {
             alert("ajaxerror GetSkills");
-        }
-    });
-}
-function GetLevels(Skill) {
-    var Skill = Skill;
-    $.ajax({
-        type: 'POST',
-        url: 'character.aspx/GetLevels',
-        contentType: 'application/json; charset=utf-8',
-        data: "{Skill: '" + Skill + "'}",
-        dataType: 'json',
-        success: function (data) {
-        },
-        error: function () {
-            alert("ajaxerror GetLevels");
         }
     });
 }
