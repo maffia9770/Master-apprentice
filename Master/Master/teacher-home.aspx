@@ -34,7 +34,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+                        <li><a href="logout.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
-                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="CreateQuest_Click" CssClass="btn btn-default QSBUT" />
+                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="CreateQuest_Click" CssClass="btn btn-default QSBUT w3-text-white w3-black"/>
             </div>
 
         </div>

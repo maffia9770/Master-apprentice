@@ -71,5 +71,9 @@ namespace Master
                 }
             }
         }
+        protected void Logout (string useless)
+        {
+            Session.Abandon();
+        }
     }
 }

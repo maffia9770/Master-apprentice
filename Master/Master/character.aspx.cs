@@ -105,42 +105,5 @@ namespace Master
                 }
             }
         }
-        [WebMethod(EnableSession = true)]
-        public static string GetLevels(string Skill)
-        {
-            using (SqlConnection Con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            {
-                try
-                {
-                    Con.Open();
-                    SqlCommand GetLevels = new SqlCommand("GetLevels", Con);
-                    GetLevels.CommandType = CommandType.StoredProcedure;
-                    SqlParameter parSkill = new SqlParameter();
-                    parSkill.ParameterName = "@Skill";
-                    parSkill.Value = Skill;
-
-                    GetLevels.Parameters.Add(parSkill);
-                    Object obj = GetLevels.ExecuteScalar();
-                    if (obj == null)
-                    {
-                        Con.Close();
-                        return null;
-                    }
-                    Skill = obj.ToString();
-                    Con.Close();
-                    Skill.Trim();
-                    Skill.Replace("[", string.Empty);
-                    Skill.Replace("]", string.Empty);
-                    Skill.Remove(0);
-                    System.Diagnostics.Debug.WriteLine(obj.ToString());
-                    return Skill;
-                }
-                catch
-                {
-                    Con.Close();
-                    return null;
-                }
-            }
-        }
     }
 }

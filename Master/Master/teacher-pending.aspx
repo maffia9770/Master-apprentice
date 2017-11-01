@@ -34,7 +34,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+                        <li><a href="logout.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
                     </ul>
                 </div>
             </div>
