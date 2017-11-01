@@ -35,7 +35,7 @@
     </div>
 
     <div id="char-background">
-        <img src="example-image.jpg" />
+        <img id="char-image" src="example-image.jpg" />
         <div id="Skills" class="w3-container">
             <p class="w3-text-white skills">Class: Computer mage</p>
             <p class="w3-text-white skills">Skills (DVA 231): </p>
