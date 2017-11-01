@@ -1,5 +1,4 @@
-﻿/// <reference path="jquery-3.2.1.intellisense.js"/>
-var QuestStatus = 0;
+﻿var QuestStatus = 0;
 
 function QuestAjax(Quest) {
     QuestText = $('#Q' + Quest).text();
@@ -47,8 +46,7 @@ function CheckQuests(Status) {
         data: "{Status: '" + Status + "'}",
         dataType: 'json',
         success: function (data) {
-            if ($("#NewQuest").length)
-            {
+            if ($("#NewQuest").length) {
                 $()
             }
             else {
@@ -57,7 +55,7 @@ function CheckQuests(Status) {
             }
             $(".details").css("visibility", "hidden");
             $(".QuestActions").css("visibility", "hidden");
-            
+
             result = JSON.parse(data.d);
             if (result == null) {
                 $("#Qmain").append('<p class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">No Quests Here</p>')
@@ -85,6 +83,22 @@ function SessionData() {
         },
         error: function () {
             alert("ajaxerror SessionData");
+        }
+    });
+}
+function Character() {
+    var i;
+
+    $.ajax({
+        type: 'POST',
+        url: 'character.aspx/Character',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function () {
+            $("#Name").append('<h1>' + result.Name + '</h1>');
+        },
+        error: function () {
+            alert("ajaxerror Character");
         }
     });
 }
