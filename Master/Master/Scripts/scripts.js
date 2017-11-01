@@ -28,10 +28,17 @@ function QuestAjax(Quest) {
     });
 }
 function NewQuest() {
-    $("#quest").
-    $("#desc").text(result[0].QuestDes);
-    $("#obj").text(result[0].QuestObj);
-    $("#rew").text(result[0].QuestRew);
+    $("#quest").html('<input type="text" id="NewName" value="" form="CreateQuest">');
+    $("#desc").html('<textarea rows="4" cols="50" id="NewDesc" value="" form="CreateQuest>');
+    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" value="" form="CreateQuest>');
+    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" value="" form="CreateQuest>');
+
+    $("#NewDesc").addClass("NewQuest");
+    $("#obj").addClass("NewQuest");
+    $("#rew").addClass("NewQuest");
+    $("#rew").append('<form action="/CreateQuest" id="CreateQuest">')
+    $("#rew").append('<input type="submit">')
+    $("#rew").append('</form>')
     $(".details").css("visibility", "visible");
 }
 function CheckQuests(Status) {
@@ -47,7 +54,6 @@ function CheckQuests(Status) {
         dataType: 'json',
         success: function (data) {
             if ($("#NewQuest").length) {
-                $()
             }
             else {
                 $("#Qmain").empty();
@@ -95,6 +101,7 @@ function Character() {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function () {
+            alert()
             $("#Name").append('<h1>' + result.Name + '</h1>');
         },
         error: function () {
