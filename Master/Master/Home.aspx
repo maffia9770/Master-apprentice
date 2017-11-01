@@ -62,7 +62,7 @@
                 <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
             </div>
 
-            <div class="w3-container details" style="visibility: ">
+            <div class="w3-container details" style="visibility: hidden">
                 <h3 class="w3-text-white QuestT">Description</h3>
                 <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
                 <h3 class="w3-text-white QuestT">Objectives</h3>

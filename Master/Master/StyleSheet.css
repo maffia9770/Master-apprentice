@@ -85,6 +85,21 @@ li.subnav {
     font-family: 'Comic Sans MS';
 }
 
+#char-background {
+    position: relative;
+    vertical-align: middle;
+    z-index: 200;
+}
+
+#Skills {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+
+    padding: 5px;
+}
+
 .active{
     background-color: #3a1c1c !important;
 }
