@@ -3,6 +3,11 @@
 function QuestAjax(Quest) {
     $(".QSBUT").css("visibility", "hidden");
     QuestText = $('#Q' + Quest).text();
+    var user = "-";
+    if (QuestText.indexOf(user) !== -1);
+    {
+        QuestText = QuestText.substring(8);
+    }
     $.ajax({
         type: 'POST',
         url: 'Home.aspx/DisplayQuest',
