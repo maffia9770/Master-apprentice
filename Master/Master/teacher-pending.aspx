@@ -40,8 +40,8 @@
             </div>
         </nav>
 
-    <!-- Sidebar -->
-    <div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width: 15%">
+        <!-- Sidebar -->
+        <div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width: 15%">
             <h3 id="Course" class="w3-bar-item">DVA231</h3>
         </div>
 
@@ -61,9 +61,20 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
+                <asp:GridView runat="server">
+                    <Columns>
+                        <asp:BoundField DataField="Name" HeaderText="File Name" />
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
+                                    CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
 
-    </div>
+        </div>
     </form>
 </body>
 </html>
