@@ -1,4 +1,5 @@
-﻿var QuestStatus = 0;
+﻿/// <reference path="jquery-3.2.1.intellisense.js"/>
+var QuestStatus = 0;
 
 function QuestAjax(Quest) {
     QuestText = $('#Q' + Quest).text();
@@ -27,6 +28,13 @@ function QuestAjax(Quest) {
         }
     });
 }
+function NewQuest() {
+    $("#quest").
+    $("#desc").text(result[0].QuestDes);
+    $("#obj").text(result[0].QuestObj);
+    $("#rew").text(result[0].QuestRew);
+    $(".details").css("visibility", "visible");
+}
 function CheckQuests(Status) {
     var i;
     var container = $(document.createElement('div'));
@@ -39,10 +47,17 @@ function CheckQuests(Status) {
         data: "{Status: '" + Status + "'}",
         dataType: 'json',
         success: function (data) {
-            $("#Qmain").empty();
+            if ($("#NewQuest").length)
+            {
+                $()
+            }
+            else {
+                $("#Qmain").empty();
+                $("#Qmain").append('<h3 class="w3-bar-item">DVA231</h3>');
+            }
             $(".details").css("visibility", "hidden");
             $(".QuestActions").css("visibility", "hidden");
-            $("#Qmain").append('<h3 class="w3-bar-item">DVA231</h3>');
+            
             result = JSON.parse(data.d);
             if (result == null) {
                 $("#Qmain").append('<p class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">No Quests Here</p>')

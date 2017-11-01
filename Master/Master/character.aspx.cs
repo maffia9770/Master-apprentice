@@ -15,9 +15,15 @@ namespace Master
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (Session["User"] == null)
-				Response.Redirect("Login.aspx");
-		}
+            if (Session["User"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            if (Convert.ToInt16(Session["UserType"]) == 1)
+            {
+                Response.Redirect("teacher-home.aspx");
+            }
+        }
 		[WebMethod(EnableSession = true)]
 		public static string ShowUsersName()
 		{

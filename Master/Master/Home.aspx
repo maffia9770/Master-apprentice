@@ -24,7 +24,7 @@
     </script>
 
 </head>
-<body onload="CheckQuests(0)">
+<body onload="CheckQuests(4)">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">

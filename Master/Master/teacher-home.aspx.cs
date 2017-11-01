@@ -11,7 +11,10 @@ namespace Master
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+            if(Convert.ToInt16(Session["UserType"]) == 0)
+            {
+                Response.Redirect("Home.aspx");
+            }
 		}
 	}
 }
