@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="StyleSheet.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/jquery-3.2.1.intellisense.js"></script>
+    <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json_parse.js"></script>
+    <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
+    <script type="text/javascript" src="Scripts/scripts.js"></script>
 </head>
 <body onload="Character()">
     <form id="form1" runat="server">
