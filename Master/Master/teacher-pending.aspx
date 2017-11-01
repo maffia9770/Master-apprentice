@@ -26,8 +26,6 @@
                                 <li class="active"><a href="#">Pending Quests</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">DVA222</a></li>
-                        <li><a href="#">DVA123</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="login.aspx"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
@@ -35,7 +33,6 @@
                 </div>
             </div>
         </nav>
-    </form>
 
     <!-- Sidebar -->
     <div class="w3-sidebar w3-black w3-bar-block" style="width: 15%">
@@ -59,6 +56,6 @@
         </div>
 
     </div>
-
+    </form>
 </body>
 </html>

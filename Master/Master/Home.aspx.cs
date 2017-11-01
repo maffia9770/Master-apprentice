@@ -16,7 +16,13 @@ namespace Master
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] == null)
+            {
                 Response.Redirect("Login.aspx");
+            }
+            if (Convert.ToInt16(Session["UserType"]) == 1)
+            {
+                Response.Redirect("teacher-home.aspx");
+            }
         }
         protected void btn_Upload_Click(object sender, EventArgs e)
         {
