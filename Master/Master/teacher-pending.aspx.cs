@@ -11,16 +11,35 @@ using System.IO;
 
 namespace Master
 {
-	public partial class teacher_pending : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+    public partial class teacher_pending : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
             if (Convert.ToInt16(Session["UserType"]) == 0)
             {
                 Response.Redirect("Home.aspx");
             }
-
+            /*if (!IsPostBack)
+            {
+                BindGrid();
+            }*/
         }
+        /*private void BindGrid()
+            {
+                using (SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.CommandText = "select Id, Name from tblFiles";
+                        cmd.Connection = con;
+                        con.Open();
+                        GridView1.DataSource = cmd.ExecuteReader();
+                        GridView1.DataBind();
+                        con.Close();
+                    }
+                }
+            }*/
         [WebMethod(EnableSession = true)]
         public static string CheckPending(string CourseID)
         {
@@ -58,7 +77,7 @@ namespace Master
                     return null;
                 }
             }
-    
+
         }
         [WebMethod(EnableSession = true)]
         public static string CheckSkills(string CourseID)
@@ -98,6 +117,7 @@ namespace Master
                 }
             }
         }
-
+    
     }
+
 }

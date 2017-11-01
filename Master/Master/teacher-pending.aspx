@@ -61,17 +61,6 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
-                <asp:GridView runat="server">
-                    <Columns>
-                        <asp:BoundField DataField="Name" HeaderText="File Name" />
-                        <asp:TemplateField ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
-                                    CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
             </div>
 
         </div>
