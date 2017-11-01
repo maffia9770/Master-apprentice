@@ -64,7 +64,7 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
-                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="CreateQuest_Click" CssClass="btn btn-default QSBUT" />
+                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="CreateQuest_Click" CssClass="btn btn-default QSBUT w3-text-white w3-black"/>
             </div>
 
         </div>

@@ -29,11 +29,11 @@ function QuestAjax(Quest) {
     });
 }
 function NewQuest() {
-    $("#quest").html('<input type="text" id="NewName" placeholder="Quest" name="NewName" form="form1" >');
-    $("#desc").html('<textarea rows="4" cols="50"" id="NewDesc" name="NewDesc" form="form1">');
-    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" name="NewObj" form="form1">');
-    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" name="NewRew" form="form1">');
-    $("#rew").append('<br /><input type="checkbox" id="NewMain" value="1" name="Type" form="form1"> Main Quest');
+    $("#quest").html('<input type="text" id="NewName" class="w3-text-white w3-black" placeholder="Quest" name="NewName" form="form1" >');
+    $("#desc").html('<textarea rows="4" cols="50"" id="NewDesc" class="w3-text-white w3-black" name="NewDesc" form="form1">');
+    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" class="w3-text-white w3-black" name="NewObj" form="form1">');
+    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" class="w3-text-white w3-black" name="NewRew" form="form1">');
+    $("#rew").append('<br /><input type="checkbox" id="NewMain" CssClass="w3-text-white w3-black" value="1" name="Type" form="form1"> Main Quest');
 
     $("#NewName").addClass("NewQuest");
     $("#NewDesc").addClass("NewQuest");
