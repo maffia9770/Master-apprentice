@@ -29,15 +29,17 @@ function QuestAjax(Quest) {
     });
 }
 function NewQuest() {
-    $("#quest").html('<input type="text" id="NewName" placeholder="Quest name" form="form1" >');
-    $("#desc").html('<textarea rows="4" cols="50"" id="NewDesc" form="form1">');
-    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" form="form1">');
-    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" form="form1">');
+    $("#quest").html('<input type="text" id="NewName" placeholder="Quest" name="NewName" form="form1" >');
+    $("#desc").html('<textarea rows="4" cols="50"" id="NewDesc" name="NewDesc" form="form1">');
+    $("#obj").html('<textarea rows="4" cols="50"" id="NewObj" name="NewObj" form="form1">');
+    $("#rew").html('<textarea rows="4" cols="50" id="NewRew" name="NewRew" form="form1">');
+    $("#rew").append('<br /><input type="checkbox" id="NewMain" value="1" name="Type" form="form1"> Main Quest');
 
     $("#NewName").addClass("NewQuest");
     $("#NewDesc").addClass("NewQuest");
     $("#NewObj").addClass("NewQuest");
     $("#NewRew").addClass("NewQuest");
+    $("#NewMain").addClass("NewQuest");
     //$("#rew").append('<form action="teacher-home.aspx/CreateQuest" id="CreateQuest"><input type="submit" onserverclick class="btn btn-default NewQuest"></form>')
     $(".details").css("visibility", "visible");
     $(".QSBUT").css("visibility", "visible");
