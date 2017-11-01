@@ -18,12 +18,15 @@ namespace Master
             if (Session["User"] == null)
                 Response.Redirect("Login.aspx");
         }
+        [WebMethod(EnableSession = true)]
         public static string Character()
         {
             using (SqlConnection Con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
+                
                 try
                 {
+                    System.Diagnostics.Debug.WriteLine("testcharacter1");
                     Con.Open();
                     SqlCommand GetName = new SqlCommand("GetName", Con);
                     GetName.CommandType = CommandType.StoredProcedure;
@@ -51,6 +54,7 @@ namespace Master
                 }
                 catch
                 {
+                    System.Diagnostics.Debug.WriteLine("test character fail");
                     Con.Close();
                     return null;
                 }

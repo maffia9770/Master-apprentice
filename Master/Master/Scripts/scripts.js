@@ -74,15 +74,13 @@ function SessionData() {
     });
 }
 function Character() {
-    var i;
-
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'character.aspx/Character',
-        contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        success: function () {
-            $("#Name").append('<h1>' + result.Name + '</h1>');
+        success: function (data) {
+            result = JSON.parse(data.d);
+            $("#Name").append('<h1>' + result[0].Name + '</h1>');
         },
         error: function () {
             alert("ajaxerror Character");
