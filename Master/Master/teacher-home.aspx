@@ -18,7 +18,7 @@
     <script type="text/javascript" src="Scripts/scripts.js"></script>
 </head>
 <body onload="CheckQuests(0)">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" method="post">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div>
