@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body onload="GetStudents();">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -42,7 +42,7 @@
         <h1 class="w3-text-white">DVA231 - Students</h1>
     </div>
 
-    <div class="w3-container">
+    <div id="Students" class="w3-container">
         <p class="w3-text-white subtext">En tabell med studenter och info här, hämtad från databasen.</p>
         <p class="w3-text-white subtext">Tabellen ska innehålla info om namn på student, studentID och betyg.</p>
     </div>
