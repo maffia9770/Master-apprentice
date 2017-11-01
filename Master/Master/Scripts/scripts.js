@@ -134,19 +134,19 @@ function GetSkills() {
 
                 if(points >= level3)
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 3, You have reached the highest level. Well done!:</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 3, You have reached the highest level. Well done!</p>');
                 }
                 else if (points >= level2)
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 2, You have '+ (level3 - points) +' points left to reach level 3.:</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 2, You have '+ (level3 - points) +' points left to reach level 3.</p>');
                 }
                 else if (points >= level1)
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 1, You have ' + (level2 - points) + ' points left to reach level 2.:</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 1, You have ' + (level2 - points) + ' points left to reach level 2.</p>');
                 }
                 else
                 {
-                    $("#Skills").append('<p class="w3-text-white skills">Level 0, You have ' + (level1 - points) + ' points left to reach level 1.:</p>');
+                    $("#Skills").append('<p class="w3-text-white skills">Level 0, You have ' + (level1 - points) + ' points left to reach level 1.</p>');
                 }
             }
         },
