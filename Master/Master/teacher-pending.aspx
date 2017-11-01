@@ -4,14 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Master & Aprentice - Pending Quests</title>
+    <title>Master & Aprentice - Pending</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="StyleSheet.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/jquery-3.2.1.intellisense.js"></script>
+    <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json_parse.js"></script>
+    <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/scripts.js"></script>
 </head>
-<body>
+<body onload="CheckPending()">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -35,25 +41,27 @@
         </nav>
 
     <!-- Sidebar -->
-    <div class="w3-sidebar w3-black w3-bar-block" style="width: 15%">
-        <h3 class="w3-bar-item">DVA231</h3>
-        <h3 class="w3-bar-item">- Pending Quests</h3>
-        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey active">Main Quest 1</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 2</a>
-        <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">Main Quest 3</a>
-    </div>
-
-    <!-- Page Content -->
-    <div style="margin-left: 15%">
-
-        <div class="w3-container w3-black w3-center">
-            <h1 class="w3-text-white">Main Quest 1 - Pending</h1>
+    <div id="Qmain" class="w3-sidebar w3-black w3-bar-block" style="width: 15%">
+            <h3 id="Course" class="w3-bar-item">DVA231</h3>
         </div>
 
-        <div class="w3-container">
-            <p class="w3-text-white subtext">En tabell med studenter och info här, hämtad från databasen.</p>
-            <p class="w3-text-white subtext">Tabellen ska innehålla info om namn på student, studentID, filen och Ja/Nej (två klickbara boxar).</p>
-        </div>
+        <!-- Page Content -->
+        <div style="margin-left: 15%">
+
+            <div class="w3-container w3-black w3-center details" style="visibility: hidden">
+                <h1 id="quest" class="w3-text-white">Main Quest 1</h1>
+            </div>
+
+            <div class="w3-container details" style="visibility: hidden">
+                <h3 class="w3-text-white QuestT">Description</h3>
+                <p id="desc" class="w3-text-white subtext">Info om questet här.</p>
+                <h3 class="w3-text-white QuestT">Objectives</h3>
+                <p id="obj" class="w3-text-white subtext">Info om objectives här.</p>
+                <h3 class="w3-text-white QuestT">Rewards</h3>
+                <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
+                <br />
+                <br />
+            </div>
 
     </div>
     </form>
