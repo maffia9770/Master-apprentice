@@ -228,7 +228,7 @@ function GetSkills() {
     });
 }
 function Logout() {
-    var QuestID = "FGT";
+    var QuestID = "REDACTED";
     $.ajax({
         type: 'POST',
         url: 'login.aspx/Logout',

@@ -110,6 +110,11 @@ li.subnav {
     font-size: 20px;
 }
 
+.w3-select {
+    border: 0;
+    width: 180px !important;
+}
+
 .active{
     background-color: #3a1c1c !important;
 }
