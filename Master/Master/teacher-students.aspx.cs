@@ -27,7 +27,7 @@ namespace Master
 		}
 
 		[WebMethod(EnableSession = true)]
-		public static string GetSkills(string QuestID)
+		public static string GetStudents(string CourseID)
 		{
 			using (SqlConnection Con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 			{
@@ -36,26 +36,25 @@ namespace Master
 					Con.Open();
 					SqlCommand GetStudents = new SqlCommand("GetStudents", Con);
 					GetStudents.CommandType = CommandType.StoredProcedure;
-					SqlParameter parUserID = new SqlParameter();
-					var UserID = (string)HttpContext.Current.Session["User"];
-					parUserID.ParameterName = "@UserID";
-					parUserID.Value = UserID;
-
-					GetStudents.Parameters.Add(parUserID);
+					SqlParameter parCourseID = new SqlParameter();
+					parCourseID.ParameterName = "@CourseID";
+					parCourseID.Value = CourseID;
+					GetStudents.Parameters.Add(parCourseID);
 					Object obj = GetStudents.ExecuteScalar();
 					if (obj == null)
 					{
-						Con.Close();
-						return null;
+						throw new HttpUnhandledException();
+						/*Con.Close();
+						return null;*/
 					}
-					UserID = obj.ToString();
+					CourseID = obj.ToString();
 					Con.Close();
-					UserID.Trim();
-					UserID.Replace("[", string.Empty);
-					UserID.Replace("]", string.Empty);
-					UserID.Remove(0);
+					CourseID.Trim();
+					CourseID.Replace("[", string.Empty);
+					CourseID.Replace("]", string.Empty);
+					CourseID.Remove(0);
 					System.Diagnostics.Debug.WriteLine(obj.ToString());
-					return UserID;
+					return CourseID;
 				}
 				catch
 				{
@@ -63,7 +62,6 @@ namespace Master
 					return null;
 				}
 			}
-
 		}
 	}
 }
