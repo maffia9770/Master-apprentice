@@ -230,50 +230,31 @@ function GetSkills() {
 }
 /*Funkar ej*/
 function GetStudents() {
-    var CourseID = "Redacted";
-    var Levels;
-    var i;
-    var level3, level2, level1, points;
-    var i;
-    $.ajax({
-        type: 'POST',
-        url: 'teacher-students.aspx/GetStudents',
-        contentType: 'application/json; charset=utf-8',
-        data: "{CourseID: '" + CourseID + "'}",
-        dataType: 'json',
-        success: function (data) {
-            result = JSON.parse(data.d);
-            for(i = 0;i < result.length; i++)
-            {
-                $("#Students").append('<p class="w3-text-white skills">' + result[i].Skill + ':</p>');
-                level3 = parseInt(result[i].Level3);
-                level2 = parseInt(result[i].Level2);
-                level1 = parseInt(result[i].Level1);
-                points = parseInt(result[i].Points);
+	var i;
+	var CourseID = "DVA231";
 
-                if(points >= level3)
-                {
-                    $("#Students").append('<p class="w3-text-white skills">Level 3, You have reached the highest level. Well done!</p>');
-                }
-                else if (points >= level2)
-                {
-                    $("#Students").append('<p class="w3-text-white skills">Level 2, You have '+ (level3 - points) +' points left to reach level 3.</p>');
-                }
-                else if (points >= level1)
-                {
-                    $("#Students").append('<p class="w3-text-white skills">Level 1, You have ' + (level2 - points) + ' points left to reach level 2.</p>');
-                }
-                else
-                {
-                    $("#Students").append('<p class="w3-text-white skills">Level 0, You have ' + (level1 - points) + ' points left to reach level 1.</p>');
-                }
-            }
-        },
-        error: function () {
-            alert("ajaxerror GetStudents");
-        }
-     }); 
-   }
+	$.ajax({
+		type: 'POST',
+		url: 'teacher-students.aspx/GetStudents',
+		contentType: 'application/json; charset=utf-8',
+		data: "{CourseID: '" + CourseID + "'}",
+		dataType: 'json',
+		success: function (data) {
+			result = JSON.parse(data.d);
+			console.log(data);
+			if (result == null) {
+				$("#Students").append('<p class="w3-text-white subtext>No Students</p>')
+			}
+			else {
+				for (i = 0; i < result.length; i++)
+					$("#Students").append('<p class="w3-text-white">This is some not working text' + result[i].UserID + '</p>');
+			}
+		},
+		error: function () {
+			alert("ajaxerror CheckQuests");
+		}
+	});
+}
 function Logout() {
     var QuestID = "REDACTED";
     $.ajax({
