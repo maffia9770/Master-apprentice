@@ -4,8 +4,9 @@ function QuestAjax(Quest) {
     $(".QSBUT").css("visibility", "hidden");
     QuestText = $('#Q' + Quest).text();
     var user = "-";
-    if (QuestText.indexOf(user) !== -1);
+    if (~QuestText.indexOf(user)==0);
     {
+        alert(QuestText);
         QuestText = QuestText.substring(8);
     }
     $.ajax({
