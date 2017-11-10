@@ -15,6 +15,7 @@ function QuestAjax(Quest) {
             data: "{User: '" + UserID + "'}",
             dataType: 'json',
             success: function (data) {
+                Dropdown();
             },
             error: function () {
                 alert("ajaxerror QuestAjaxBefore");
@@ -102,29 +103,26 @@ function CheckQuests(Status) {
 function Dropdown() {
     var i;
     var container = $(document.createElement('div'));
-    var Status = 2;
+    var CourseID = "DVA231";
 
     $.ajax({
         type: 'POST',
-        url: 'Home.aspx/Skills',
+        url: 'teacher-pending.aspx/Skills',
         contentType: 'application/json; charset=utf-8',
-        data: "{Status: '" + Status + "'}",
+        data: "{CourseID: '" + CourseID + "'}",
         dataType: 'json',
         success: function (data) {
-            $(".Dropdown").css("visibility", "hidden");
-
             result = JSON.parse(data.d);
-            if (result == null) {
-                $("#Qmain").append('<p class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">No Quests Here</p>')
+            console.log(result)
+            for (i = 0; i < result.length; i++)
+            {
+                $("#Skills").append('<textarea rows="1" cols="10"" id="Skill' + i + '" class="w3-text-white w3-black" name="Skill' + i + '" placeholder="' + result[i].Skill + '" onkeypress="return event.charCode >= 48 && event.charCode <= 57" form="form1">');
             }
-            else {
-                for (i = 0; i < result.length; i++)
-                    $("#Qmain").append('<a runat="server" ID="Q' + i + '" onclick="QuestAjax(' + i + ')" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">' + result[i].QuestName + '</a>');
+                    
                 //$('#Qmain').after(container);
-            }
         },
         error: function () {
-            alert("ajaxerror CheckQuests");
+            alert("ajaxerror Skills");
         }
     });
 }
