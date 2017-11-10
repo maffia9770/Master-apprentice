@@ -228,6 +228,31 @@ function GetSkills() {
         }
     });
 }
+function CharQuests() {
+    var QuestID = "REDACTED";
+    var i;
+    $.ajax({
+        type: 'POST',
+        url: 'character.aspx/CharQuests',
+        contentType: 'application/json; charset=utf-8',
+        data: "{QuestID: '" + QuestID + "'}",
+        dataType: 'json',
+        success: function (data) {
+            result = JSON.parse(data.d);
+            if (result == null)
+                $("#Quests").append('<p class="w3-text-white quests"> You have no Main Quests left to complete. </p>');
+            else {
+                $("#Quests").append('<p class="w3-text-white quests"> You have yet to complete: </p>');
+                for (i = 0; i < result.length; i++) {
+                    $("#Quests").append('<p class="w3-text-white quests">' + result[i].QuestName + '.</p>');
+                }
+            }
+        },
+        error: function () {
+            alert("ajaxerror CharQuests");
+        }
+    });
+}
 /*Funkar ej*/
 function GetStudents() {
 	var i;

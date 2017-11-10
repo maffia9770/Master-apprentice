@@ -110,6 +110,16 @@ li.subnav {
     font-size: 20px;
 }
 
+#Quests {
+    position: absolute;
+    top: 10px;
+    left: 1000px;
+    z-index: 1;
+
+    padding: 5px;
+    font-size: 20px;
+}
+
 .w3-select {
     border: 0;
     width: 180px !important;
