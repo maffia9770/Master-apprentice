@@ -170,7 +170,7 @@ namespace Master
                     Con.Open();
                     Users.ExecuteNonQuery();
                     Participants.ExecuteNonQuery();
-                    Skills.ExecuteNonQuery();
+                Skills.ExecuteScalar();
                     Con.Close();
 
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Student created successfully')", true);
