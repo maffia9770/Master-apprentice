@@ -15,7 +15,7 @@
     <script type="text/html" src="https://github.com/douglascrockford/JSON-js/blob/master/json2.js"></script>
     <script type="text/javascript" src="Scripts/scripts.js"></script>
 </head>
-<body onload="Character(); GetSkills();">
+<body onload="Character(); GetSkills(); CharQuests();">
     <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -39,6 +39,8 @@
         <div id="Skills" class="w3-container">
             <p class="w3-text-white skills">Class: Computer mage</p>
             <p class="w3-text-white skills">Skills (DVA 231): </p>
+        </div>
+        <div id="Quests" class="w3-container">
         </div>
     </div>
 </body>
