@@ -120,6 +120,11 @@ li.subnav {
     font-size: 20px;
 }
 
+.student {
+    font-size: 20px;
+    display: inline;
+}
+
 .w3-select {
     border: 0;
     width: 180px !important;

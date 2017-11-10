@@ -253,7 +253,6 @@ function CharQuests() {
         }
     });
 }
-/*Funkar ej*/
 function GetStudents() {
 	var i;
 	var CourseID = "DVA231";
@@ -271,8 +270,11 @@ function GetStudents() {
 				$("#Students").append('<p class="w3-text-white subtext>No Students</p>')
 			}
 			else {
-				for (i = 0; i < result.length; i++)
-					$("#Students").append('<p class="w3-text-white">This is some not working text' + result[i].UserID + '</p>');
+			    for (i = 0; i < result.length; i++)
+			    {
+			        $("#Students").append('<p class="w3-text-white student" ID="' + result[i].UserID + '">' + result[i].Name + ', ' + result[i].UserID + ': </p>');
+			        StudentQuests(result[i].UserID);
+			    }
 			}
 		},
 		error: function () {
@@ -280,6 +282,76 @@ function GetStudents() {
 		}
 	});
 }
+
+function StudentQuests(UserID) {
+    var UserID = UserID;
+    $.ajax({
+        type: 'POST',
+        url: 'teacher-students.aspx/StudentQuests',
+        contentType: 'application/json; charset=utf-8',
+        data: "{UserID: '" + UserID + "'}",
+        dataType: 'json',
+        success: function (data) {
+            result = JSON.parse(data.d);
+            if (result == 0)
+            {
+                $("#" + UserID).append('<p class="w3-text-white student" ID="' + UserID + 'quests"> Main Quests Complete; </p>');
+            }
+            else
+            {
+                $("#" + UserID).append('<p class="w3-text-white student" ID="' + UserID + 'quests"> Main Quests Incomplete; </p>');
+            }
+            StudentSkills(UserID);
+            
+        },
+        error: function () {
+            alert("ajaxerror StudentQuests");
+        }
+    });
+}
+
+function StudentSkills(UserID) {
+    var UserID = UserID;
+    var i;
+    var totlevel3 = 0, totlevel2 = 0, totlevel1 = 0;
+    var level3, level2, level1, points;
+    $.ajax({
+        type: 'POST',
+        url: 'teacher-students.aspx/StudentSkills',
+        contentType: 'application/json; charset=utf-8',
+        data: "{UserID: '" + UserID + "'}",
+        dataType: 'json',
+        success: function (data) {
+            result = JSON.parse(data.d);
+            for (i = 0;i < result.length;i++)
+            {
+                level3 = parseInt(result[i].Level3);
+                level2 = parseInt(result[i].Level2);
+                level1 = parseInt(result[i].Level1);
+                points = parseInt(result[i].Points);
+                if (points >= level3)
+                    totlevel3++;
+                if (points >= level2)
+                    totlevel2++;
+                if (points >= level1)
+                    totlevel1++;
+            }
+
+            if (totlevel3 == result.length)
+                $("#" + UserID + 'quests').append('<p class="w3-text-white student" ID="' + UserID + 'skills"> Has reached level 3 in all skills</p>');
+            else if (totlevel2 == result.length)
+                $("#" + UserID + 'quests').append('<p class="w3-text-white student" ID="' + UserID + 'skills"> Has reached level 2 in all skills</p>');
+            else if (totlevel1 == result.length)
+                $("#" + UserID + 'quests').append('<p class="w3-text-white student" ID="' + UserID + 'skills"> Has reached level 1 in all skills</p>');
+            else
+                $("#" + UserID + 'quests').append('<p class="w3-text-white student" ID="' + UserID + 'skills"> Has not reached level 1 in all skills</p>');
+        },
+        error: function () {
+            alert("ajaxerror StudentSkills");
+        }
+    });
+}
+
 function Logout() {
     var QuestID = "REDACTED";
     $.ajax({
