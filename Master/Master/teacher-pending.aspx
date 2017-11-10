@@ -73,10 +73,11 @@
                 <p id="rew" class="w3-text-white subtext">Vilka lvlar man får här :)</p>
                 <br />
                 <br />
-                <input type="checkbox" id="Approve" CssClass="w3-text-white w3-black CBOX" value="1" name="status" form="form1" /> Approve
+                <button type="button" class="btn btn-default w3-text-white w3-black" id="Download" onclick="window.open('Download.aspx');" >Download Attached File</button>
+                <div class="w3-container" id="Skills" style="position:relative"></div>
                 <br />
-                <input type="checkbox" id="Fail" CssClass="w3-text-white w3-black CBOX" value="2" name="status" form="form1" /> Fail
-                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="SubmitGrade_Click" CssClass="btn btn-default QSBUT w3-text-white w3-black"/>
+                <br />
+                <asp:Button runat="server" ID="QuestSubmit" Text="Submit" OnClick="SubmitGrade_Click" CssClass="btn btn-default w3-text-white w3-black"/>
             </div>
 
         </div>

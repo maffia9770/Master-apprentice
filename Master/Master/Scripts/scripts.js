@@ -3,10 +3,24 @@
 function QuestAjax(Quest) {
     $(".QSBUT").css("visibility", "hidden");
     QuestText = $('#Q' + Quest).text();
-    var user = "-";
-    if (~QuestText.indexOf(user)==0);
+    var user = '-';
+    if (QuestText.indexOf(user) > -1)
     {
-        alert(QuestText);
+        var index = QuestText.indexOf(user);
+        var UserID = QuestText.substr(0, index);
+        $.ajax({
+            type: 'POST',
+            url: 'teacher-pending.aspx/Save',
+            contentType: 'application/json; charset=utf-8',
+            data: "{User: '" + UserID + "'}",
+            dataType: 'json',
+            success: function (data) {
+                Dropdown();
+            },
+            error: function () {
+                alert("ajaxerror QuestAjaxBefore");
+            }
+        });
         QuestText = QuestText.substring(8);
     }
     $.ajax({
@@ -83,6 +97,32 @@ function CheckQuests(Status) {
         },
         error: function () {
             alert("ajaxerror CheckQuests");
+        }
+    });
+}
+function Dropdown() {
+    var i;
+    var container = $(document.createElement('div'));
+    var CourseID = "DVA231";
+
+    $.ajax({
+        type: 'POST',
+        url: 'teacher-pending.aspx/Skills',
+        contentType: 'application/json; charset=utf-8',
+        data: "{CourseID: '" + CourseID + "'}",
+        dataType: 'json',
+        success: function (data) {
+            result = JSON.parse(data.d);
+            console.log(result)
+            for (i = 0; i < result.length; i++)
+            {
+                $("#Skills").append('<textarea rows="1" cols="10"" id="Skill' + i + '" class="w3-text-white w3-black" name="Skill' + i + '" placeholder="' + result[i].Skill + '" onkeypress="return event.charCode >= 48 && event.charCode <= 57" form="form1">');
+            }
+                    
+                //$('#Qmain').after(container);
+        },
+        error: function () {
+            alert("ajaxerror Skills");
         }
     });
 }
