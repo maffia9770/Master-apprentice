@@ -88,6 +88,7 @@ namespace Master
         [WebMethod(EnableSession = true)]
         public static string DisplayQuest(string Quest)
         {
+            HttpContext.Current.Session["ActQuest"] = Quest;
             System.Diagnostics.Debug.WriteLine(Quest);
             //Quest = "Search for the Golden Pineapple";//detta ska inte vara här sen :p
             using (SqlConnection con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))

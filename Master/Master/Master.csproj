@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="character.aspx" />
+    <Content Include="Download.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Logout.aspx" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="character.aspx.designer.cs">
       <DependentUpon>character.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

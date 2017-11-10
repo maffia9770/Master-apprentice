@@ -3,10 +3,23 @@
 function QuestAjax(Quest) {
     $(".QSBUT").css("visibility", "hidden");
     QuestText = $('#Q' + Quest).text();
-    var user = "-";
-    if (~QuestText.indexOf(user)==0);
+    var user = '-';
+    if (QuestText.indexOf(user) > -1)
     {
-        alert(QuestText);
+        var index = QuestText.indexOf(user);
+        var UserID = QuestText.substr(0, index);
+        $.ajax({
+            type: 'POST',
+            url: 'teacher-pending.aspx/Save',
+            contentType: 'application/json; charset=utf-8',
+            data: "{User: '" + UserID + "'}",
+            dataType: 'json',
+            success: function (data) {
+            },
+            error: function () {
+                alert("ajaxerror QuestAjaxBefore");
+            }
+        });
         QuestText = QuestText.substring(8);
     }
     $.ajax({
@@ -70,6 +83,35 @@ function CheckQuests(Status) {
             }
             $(".details").css("visibility", "hidden");
             $(".QuestActions").css("visibility", "hidden");
+
+            result = JSON.parse(data.d);
+            if (result == null) {
+                $("#Qmain").append('<p class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">No Quests Here</p>')
+            }
+            else {
+                for (i = 0; i < result.length; i++)
+                    $("#Qmain").append('<a runat="server" ID="Q' + i + '" onclick="QuestAjax(' + i + ')" class="w3-bar-item w3-button w3-hover-none w3-hover-text-grey">' + result[i].QuestName + '</a>');
+                //$('#Qmain').after(container);
+            }
+        },
+        error: function () {
+            alert("ajaxerror CheckQuests");
+        }
+    });
+}
+function Dropdown() {
+    var i;
+    var container = $(document.createElement('div'));
+    var Status = 2;
+
+    $.ajax({
+        type: 'POST',
+        url: 'Home.aspx/Skills',
+        contentType: 'application/json; charset=utf-8',
+        data: "{Status: '" + Status + "'}",
+        dataType: 'json',
+        success: function (data) {
+            $(".Dropdown").css("visibility", "hidden");
 
             result = JSON.parse(data.d);
             if (result == null) {
