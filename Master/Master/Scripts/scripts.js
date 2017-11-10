@@ -345,6 +345,8 @@ function StudentSkills(UserID) {
                 $("#" + UserID + 'quests').append('<p class="w3-text-white student" ID="' + UserID + 'skills"> Has reached level 1 in all skills</p>');
             else
                 $("#" + UserID + 'quests').append('<p class="w3-text-white student" ID="' + UserID + 'skills"> Has not reached level 1 in all skills</p>');
+
+            $("#" + UserID + 'skills').append('<p class="w3-text-white"></p>');
         },
         error: function () {
             alert("ajaxerror StudentSkills");

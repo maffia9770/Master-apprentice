@@ -34,6 +34,15 @@ body {
     background-color: #5B2F30;
 }
 
+.modal-content {
+    background-color: #5B2F30;
+    color: white;
+}
+
+#submitStudent {
+    float:right;
+}
+
 #loginbody {
     background-image: url("http://bestanimations.com/Nature/Fire/campfire-animated-gif-10.gif");
     -webkit-background-size: cover;
@@ -123,6 +132,15 @@ li.subnav {
 .student {
     font-size: 20px;
     display: inline;
+    margin: 20px;
+}
+
+.btn {
+    position: relative;
+    margin: 20px;
+    font-family: 'Copperplate Gothic';
+    color: white;
+    background-color: #4d2828 !important;
 }
 
 .w3-select {

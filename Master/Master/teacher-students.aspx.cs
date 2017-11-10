@@ -134,6 +134,94 @@ namespace Master
                 }
             }
         }
+        [WebMethod(EnableSession = true)]
+        protected void CreateStudent_Click(object sender, EventArgs e)
+        {
+            string name = Request.Form["name"];
+            string userid = Request.Form["userid"];
+            string password = Request.Form["pwd"];
+            string course = "DVA231";
+            int p = 1;
+            int Type = 0;
+
+            using (SqlConnection Con = new SqlConnection("Server=tcp:master-apprentice.database.windows.net,1433;Initial Catalog=Masterbase;Persist Security Info=False;User ID=master;Password=Apprentice1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            {
+                try
+                {
+                    const string SQL = "INSERT INTO [Users] ([UserID], [Password], UserType, [Name]) VALUES (@UserID, @Password, @UserType, @Name)";
+                    SqlCommand Users = new SqlCommand(SQL, Con);
+                    Users.Parameters.AddWithValue("@UserID", userid);
+                    Users.Parameters.AddWithValue("@Password", password);
+                    Users.Parameters.AddWithValue("@UserType", Type);
+                    Users.Parameters.AddWithValue("@Name", name);
+
+                    const string SQL2 = "INSERT INTO [Participants] ([UserID], [CourseID]) VALUES (@UserID, @CourseID)";
+                    SqlCommand Participants = new SqlCommand(SQL2, Con);
+                    Participants.Parameters.AddWithValue("@UserID", userid);
+                    Participants.Parameters.AddWithValue("@CourseID", course);
+
+                    const string SQL3 = "INSERT INTO [UsersSkills] ([UserID], [Skill], [Points], [CourseID]) VALUES (@UserID, @Skill, @Points, @CourseID)";
+                    SqlCommand DesignInnovation = new SqlCommand(SQL3, Con);
+                    DesignInnovation.Parameters.AddWithValue("@UserID", userid);
+                    DesignInnovation.Parameters.AddWithValue("@Skill", "Design-Innovation");
+                    DesignInnovation.Parameters.AddWithValue("@Points", p);
+                    DesignInnovation.Parameters.AddWithValue("@CourseID", course);
+
+                    const string SQL4 = "INSERT INTO [UsersSkills] ([UserID], [Skill], [Points], [CourseID]) VALUES (@UserID, @Skill, @Points, @CourseID)";
+                    SqlCommand Presenting = new SqlCommand(SQL4, Con);
+                    DesignInnovation.Parameters.AddWithValue("@UserID", userid);
+                    DesignInnovation.Parameters.AddWithValue("@Skill", "Presenting");
+                    DesignInnovation.Parameters.AddWithValue("@Points", p);
+                    DesignInnovation.Parameters.AddWithValue("@CourseID", course);
+
+                    const string SQL5 = "INSERT INTO [UsersSkills] ([UserID], [Skill], [Points], [CourseID]) VALUES (@UserID, @Skill, @Points, @CourseID)";
+                    SqlCommand Programming = new SqlCommand(SQL5, Con);
+                    DesignInnovation.Parameters.AddWithValue("@UserID", userid);
+                    DesignInnovation.Parameters.AddWithValue("@Skill", "Programming");
+                    DesignInnovation.Parameters.AddWithValue("@Points", p);
+                    DesignInnovation.Parameters.AddWithValue("@CourseID", course);
+
+                    const string SQL6 = "INSERT INTO [UsersSkills] ([UserID], [Skill], [Points], [CourseID]) VALUES (@UserID, @Skill, @Points, @CourseID)";
+                    SqlCommand Research = new SqlCommand(SQL6, Con);
+                    DesignInnovation.Parameters.AddWithValue("@UserID", userid);
+                    DesignInnovation.Parameters.AddWithValue("@Skill", "Research");
+                    DesignInnovation.Parameters.AddWithValue("@Points", p);
+                    DesignInnovation.Parameters.AddWithValue("@CourseID", course);
+
+                    const string SQL7 = "INSERT INTO [UsersSkills] ([UserID], [Skill], [Points], [CourseID]) VALUES (@UserID, @Skill, @Points, @CourseID)";
+                    SqlCommand Thinking = new SqlCommand(SQL7, Con);
+                    DesignInnovation.Parameters.AddWithValue("@UserID", userid);
+                    DesignInnovation.Parameters.AddWithValue("@Skill", "Thinking");
+                    DesignInnovation.Parameters.AddWithValue("@Points", p);
+                    DesignInnovation.Parameters.AddWithValue("@CourseID", course);
+
+                    const string SQL8 = "INSERT INTO [UsersSkills] ([UserID], [Skill], [Points], [CourseID]) VALUES (@UserID, @Skill, @Points, @CourseID)";
+                    SqlCommand Writing = new SqlCommand(SQL8, Con);
+                    DesignInnovation.Parameters.AddWithValue("@UserID", userid);
+                    DesignInnovation.Parameters.AddWithValue("@Skill", "Writing");
+                    DesignInnovation.Parameters.AddWithValue("@Points", p);
+                    DesignInnovation.Parameters.AddWithValue("@CourseID", course);
+
+                    Con.Open();
+                    Users.ExecuteNonQuery();
+                    Participants.ExecuteNonQuery();
+                    DesignInnovation.ExecuteNonQuery();
+                    Presenting.ExecuteNonQuery();
+                    Programming.ExecuteNonQuery();
+                    Research.ExecuteNonQuery();
+                    Thinking.ExecuteNonQuery();
+                    Writing.ExecuteNonQuery();
+                    Con.Close();
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Student created successfully')", true);
+                }
+                catch
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Could not create student')", true);
+                    Con.Close();
+                }
+            }
+        }
 
     }
 }

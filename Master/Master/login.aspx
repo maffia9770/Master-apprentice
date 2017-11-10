@@ -21,7 +21,7 @@
                 <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="Tbox" placeholder="Password"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="Submit" runat="server" Text="Login" OnClick="Submit_Click" CssClass="btn" />
+                <asp:Button ID="Submit" runat=server Text="Login" OnClick="Submit_Click" CssClass="btn" />
             </div>
         </div>
     </form>
