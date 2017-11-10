@@ -161,36 +161,11 @@ namespace Master
                     Participants.Parameters.AddWithValue("@CourseID", course);
 
                     SqlCommand Skills = new SqlCommand("InsertUsersSkills", Con);
-                    SqlParameter Skill1 = new SqlParameter();
-                    Skill1.ParameterName = "@Skill1";
-                    Skill1.Value = "Design-Innovation";
-                    SqlParameter Skill2 = new SqlParameter();
-                    Skill1.ParameterName = "@Skill2";
-                    Skill1.Value = "Presenting";
-                    SqlParameter Skill3 = new SqlParameter();
-                    Skill1.ParameterName = "@Skill3";
-                    Skill1.Value = "Programming";
-                    SqlParameter Skill4 = new SqlParameter();
-                    Skill1.ParameterName = "@Skill4";
-                    Skill1.Value = "Research";
-                    SqlParameter Skill5 = new SqlParameter();
-                    Skill1.ParameterName = "@Skill5";
-                    Skill1.Value = "Thinking";
-                    SqlParameter Skill6 = new SqlParameter();
-                    Skill1.ParameterName = "@Skill6";
-                    Skill1.Value = "Writing";
+                    Skills.CommandType = CommandType.StoredProcedure;
                     SqlParameter UserID = new SqlParameter();
                     UserID.ParameterName = "@UserID";
-                    UserID.Value = userid;
-
-                    Skills.Parameters.Add(Skill1);
-                    Skills.Parameters.Add(Skill2);
-                    Skills.Parameters.Add(Skill3);
-                    Skills.Parameters.Add(Skill4);
-                    Skills.Parameters.Add(Skill5);
-                    Skills.Parameters.Add(Skill6);
+                    UserID.Value = (string) userid;
                     Skills.Parameters.Add(UserID);
-
 
                     Con.Open();
                     Users.ExecuteNonQuery();
